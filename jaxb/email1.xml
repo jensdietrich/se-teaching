@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<email id="id1">
+	<to>
+		<email_address>jenz@vuw.ac.nz</email_address>
+		<display_name>Jens Dietrich</display_name>
+	</to>
+	<cc>
+		<email_address>studentsSWEN301@vuw.ac.nz</email_address>
+		<display_name>SWEN301 student list</display_name>
+	</cc>
+	<subject>update</subject>
+	<body>this lecture notes have been updated</body>
+
+</email>

@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script language="javascript" type="text/javascript">
+            var xmlHttp = new XMLHttpRequest();
+            function check4matchingNames() {
+                
+                var t = document.getElementById("name").value;
+                if ((t == null) || (t == "")) return;
+                var url = "firstNames?name=" + t;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.onreadystatechange = updatePage;
+                xmlHttp.send(null);
+             }
+             function updatePage() {
+                if (xmlHttp.readyState == 4) {                    
+                    var responseData = xmlHttp.responseText;
+                    document.getElementById("matchingnames").value = responseData;
+                }
+             }
+        </script>
+    </head>
+    <body>
+
+    <h1>The AJAX First Name DB </h1>
+
+    <p/>
+    <form name="form1">
+        Enter a name here:<br/>
+        <input type="text" name="name" id="name" value="" size="50" onkeyup="check4matchingNames();"/>
+        <p/>
+        <textarea name="matchingnames" id="matchingnames" cols="40" rows="5" readonly></textarea>
+    </form>
+    
+    <p/><hr/><p/>
+    <a href="index_jquery.html">version using jquery</a>
+    
+    </body>
+</html>

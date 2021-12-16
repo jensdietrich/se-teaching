@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-Name: DFService - Long
+Bundle-SymbolicName: nz.ac.vuw.jenz.osgi.df_long
+Bundle-Version: 1.0.0
+Bundle-Description: a simple date formatter service
+Bundle-Vendor: Jens Dietrich,VUW NZ
+Bundle-Activator: nz.ac.vuw.jenz.osgi.df_long.Activator
+Bundle-Category: example
+Import-Package: org.osgi.framework
+Require-Bundle: nz.ac.vuw.jenz.osgi.df_spec

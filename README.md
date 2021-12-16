@@ -1,2 +1,4 @@
-# se-teaching
-resources for teaching software engineering and programming
+This repository contains code examples I am using in my programming and software engineering classes at [Victoria University of Wellington](https://www.victoria.ac.nz/ecs). Each example has a separate readme with additional details, including instructions how to install and run the code. 
+Most examples use (and require) [Maven](https://maven.apache.org/) to facilitate dependency management and server provision if necessary.
+
+There are additional examples in the [oop-examples](https://bitbucket.org/jensdietrich/oop-examples/) repository I used until 2018 for teaching at Massey University, they will be updated (e.g., most of them are Eclipse projects, they will be updated to mvn projects so that they can be build and run from a terminal, or loaded into arbitrary IDEs including intellij and eclipse).

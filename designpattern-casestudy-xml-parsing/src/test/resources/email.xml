@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<email id="ID000000" priority="LOW">
+	<to>
+		<email_address>tim@smih</email_address>
+		<display_name>Tim</display_name>
+	</to>
+	<to>
+		<email_address>tom@turner.org</email_address>
+		<display_name>Tom</display_name>
+	</to>
+	<cc>
+		<email_address>meg@macdonald.org</email_address>
+		<display_name>Megan</display_name>
+	</cc>
+	<from>
+		<email_address>jens@dietrich.com</email_address>
+		<display_name>Jens</display_name>
+	</from>
+	<subject>Party time.</subject>
+	<body>You have just been invited to a party !</body>
+</email>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-Name: WebClock
+Bundle-SymbolicName: nz.ac.vuw.jenz.osgi.webui
+Bundle-Version: 1.0.0
+Bundle-Description: a servlet that displays the current time
+Bundle-Vendor: Jens Dietrich, VUW NZ
+Bundle-Activator: nz.ac.vuw.jenz.osgi.webui.Activator
+Bundle-Category: example
+Import-Package: org.osgi.framework,
+ org.osgi.service.http,
+ javax.servlet,
+ javax.servlet.http
+Require-Bundle: nz.ac.vuw.jenz.osgi.df_spec

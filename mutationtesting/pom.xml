@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jenz-examples</groupId>
+  <artifactId>mutationtesting</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>mutationtesting</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+  <build>
+  <plugins>
+    <plugin>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-maven</artifactId>
+      <version>1.6.6</version>
+      <configuration>
+        <targetClasses>
+          <param>nz.ac.vuw.jenz.pitest.*</param>
+        </targetClasses>
+        <targetTests>
+          <param>test.nz.ac.vuw.jenz.pitest.*</param>
+        </targetTests>
+      </configuration>
+    </plugin>
+  </plugins>
+  </build>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-parent</artifactId>
+      <version>1.6.6</version>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+</project>

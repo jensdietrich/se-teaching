@@ -1,0 +1,5 @@
+### GET request for first name service
+GET http://localhost:8080/ajaxexample/firstNames?name=J
+Accept: text/plain
+
+###

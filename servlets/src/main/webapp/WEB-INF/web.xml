@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+   http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <filter>
+        <filter-name>ProfilingFilter</filter-name>
+        <filter-class>nz.ac.vuw.jenz.servlets.ProfilingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ProfilingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <!-- <dispatcher>REQUEST</dispatcher> -->
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>ServerDate</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.ServerDateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServerDate</servlet-name>
+        <url-pattern>/ServerDate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HeaderAnalyzer</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.HeaderAnalyzerServlet</servlet-class>
+        <async-supported>false</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HeaderAnalyzer</servlet-name>
+        <url-pattern>/HeaderAnalyzer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FormAnalyzer</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.FormAnalyzerServlet</servlet-class>
+        <async-supported>false</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormAnalyzer</servlet-name>
+        <url-pattern>/FormAnalyzer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShoppingCart</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.ShoppingCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShoppingCart</servlet-name>
+        <url-pattern>/ShoppingCart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShoppingCart2</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.ShoppingCartServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShoppingCart2</servlet-name>
+        <url-pattern>/ShoppingCart2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.ImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/Clock</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Modular.Login</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.modular.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Modular.Login</servlet-name>
+        <url-pattern>/modular/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Modular.Footer</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.modular.Footer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Modular.Footer</servlet-name>
+        <url-pattern>/modular/footer</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Modular.Logout</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.modular.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Modular.Logout</servlet-name>
+        <url-pattern>/modular/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Modular.Main</servlet-name>
+        <servlet-class>nz.ac.vuw.jenz.servlets.modular.Main</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Modular.Main</servlet-name>
+        <url-pattern>/modular/main</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

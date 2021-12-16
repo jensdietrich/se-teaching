@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-Name: ConsoleClock
+Bundle-SymbolicName: nz.ac.vuw.jenz.osgi.consoleclock
+Bundle-Version: 1.0.0
+Bundle-Description: a console clock that uses a date formatter service is available
+Bundle-Vendor: Jens Dietrich, VUW NZ
+Bundle-Activator: nz.ac.vuw.jenz.osgi.consoleclock.Activator
+Bundle-Category: example
+Import-Package: org.osgi.framework
+Require-Bundle: nz.ac.vuw.jenz.osgi.df_spec

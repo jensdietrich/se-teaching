@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-Name: DFService-commons
+Bundle-SymbolicName: nz.ac.vuw.jenz.osgi.df_spec
+Bundle-Version: 1.0.0
+Bundle-Description: data structures shared between providers and consumers of the date formatter service
+Bundle-Vendor: Jens Dietrich, VUW NZ
+Bundle-Activator: nz.ac.vuw.jenz.osgi.df_spec.Activator
+Bundle-Category: example
+Import-Package: org.osgi.framework
+Export-Package: nz.ac.vuw.jenz.osgi.df_spec; version=1.0.0

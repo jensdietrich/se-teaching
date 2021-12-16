@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<project name="example2client" default="all">
+    <path id="build.classpath">
+        <fileset dir="lib">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+	<property name="build" value="./build"/>
+	<property name="classes" value="${build}/classes"/>
+<target name="all" depends="init,compile,jar"/>
+<target name="init">
+<mkdir dir="${classes}"/>
+<mkdir dir="${build}"/>
+</target>
+<target name="compile">
+<javac 
+	destdir = "${classes}" 
+	debug = "on" 
+	classpathref="build.classpath"
+	srcdir = "./src" >
+</javac>
+</target>
+	
+<target name="jar">
+<jar basedir = "${classes}"
+	jarfile = "${build}/dateformatter-spec-1.0.0.jar"
+	compress = "true"
+	includes = "**/*"
+	manifest = "./meta-inf/MANIFEST.MF"
+/>
+</target>
+<target name="clean">
+<delete dir = "${classes}"/>
+<delete dir = "${build}"/>
+</target>
+</project>

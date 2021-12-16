@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>Servlet Examples</title>
+        <meta name="author" content="Jens Dietrich">
+        <meta name="description"
+              content="Index page containing links to and short descriptions of some Servlet examples">
+    </head>
+    <body style="color: rgb(0, 0, 0);">
+        <table cellpadding="2" cellspacing="2" border="0"
+               style="text-align: left; width: 100%;">
+            <tbody>
+                <tr>
+                    <td
+                        style="background-color: rgb(160, 170, 238); text-align: center; vertical-align: middle;">
+                        <h4
+                            style="text-align: center;"> </h4>
+                        <h3 style="text-align: center;">Servlet and JSP Examples</h3>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h3>Servlets</h3>
+        <table cellpadding="2" cellspacing="2" border="1"
+               style="text-align: left; width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="vertical-align: top;"><a href="ServerDate">What is the time on the server</a><br>
+                    </td>
+                    <td style="vertical-align: top;">Basic "Hello World" - style example that prints the current server date and time.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><a href="HeaderAnalyzer">Header Analyser</a><br>
+                    </td>
+                    <td style="vertical-align: top;">A servlet displaying request
+                        headers.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;">Form Analyser<br>
+                    </td>
+                    <td style="vertical-align: top;">An html form processing servlet.
+                        Press the submit button to send this form to a form processing servlet.<br>
+                        <table cellpadding="2" cellspacing="2" border="1"
+                               style="text-align: left; width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <table cellpadding="2" cellspacing="2" border="1"
+                                               style="text-align: left; width: 100px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td
+                                                        style="vertical-align: top; background-color: rgb(204, 204, 204);">name:<br>
+                                                        <form action="FormAnalyzer"> <input name="name"
+                                                                                            size="50"> <br>
+                                                            first name:<br>
+                                                            <input name="firstname" size="50"><br>
+                                                            <br>
+                                                            is NZ citizen: <input name="citizen" type="checkbox" value=""><br>
+                                                            <hr style="width: 100%; height: 2px;"><input
+                                                                type="submit" value="Submit (GET)">&nbsp; </form>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        <table cellpadding="2" cellspacing="2" border="1"
+                                               style="text-align: left; width: 100px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td
+                                                        style="vertical-align: top; background-color: rgb(204, 204, 204);">name:<br>
+                                                        <form action="FormAnalyzer" method="post"> <input
+                                                                name="name" size="50"> <br>
+                                                            first name:<br>
+                                                            <input name="firstname" size="50"><br>
+                                                            <br>
+                                                            is NZ citizen: <input name="citizen" type="checkbox" value=""><br>
+                                                            <hr style="width: 100%; height: 2px;"><input
+                                                                type="submit" value="Submit (POST)"> </form>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"> <a href="ShoppingCart">Music Store with Cookies<br>
+                        </a></td>
+                    <td style="vertical-align: top;">Shopping Cart example that uses
+                        session handling. Cookies <span style="font-weight: bold;">must </span>be
+                        enabled.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><a href="ShoppingCart2">Music Store without Cookies</a>
+                    </td>
+                    <td style="vertical-align: top;">Shopping Cart example that uses
+                        session handling. This example does not rely on cookies!<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><a href="modular/login">Modular Web Application<br>
+                        </a> </td>
+                    <td style="vertical-align: top;">An application that uses modular
+                        design based on forward and include.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><a href="clock.html">Animated Barchart Clock<br>
+                        </a> </td>
+                    <td style="vertical-align: top;">A servlet generating a
+                        dynamically generated image. The image visualizes the current time. Use
+                        refresh (F5) to update the image. <br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h3>JSP</h3>
+        <br>
+        <table cellpadding="2" cellspacing="2" border="1"
+               style="text-align: left; width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="vertical-align: top;"><a href="ServerDate.jsp">JSP Server Date</a><br>
+                    </td>
+                    <td style="vertical-align: top;">A simple JSP page which displays the current server time.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><a href="ServerDate2.jsp">JSP Server Date 2
+                        </a><br>
+                    </td>
+                    <td style="vertical-align: top;">Similar to example 1, but uses
+                        more scriptlets and expressions and predefined object references.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><a href="PageCounter.jsp">JSP Page Counter</a><br>
+                    </td>
+                    <td style="vertical-align: top;">A page counter using a declaration.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><a href="ELExample.jsp">JSP Calculator<br>
+                        </a></td>
+                    <td style="vertical-align: top;">Shows the use of the JSP 2.0 Expression Language.<br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <hr style="width: 100%; height: 2px;"><br>
+        <p align="center"><small><a href="https://ecs.victoria.ac.nz/Main/JensDietrich">Jens Dietrich, Victoria University of Wellington, 2019</a></small></p>
+        <br>
+    </body>
+</html>
