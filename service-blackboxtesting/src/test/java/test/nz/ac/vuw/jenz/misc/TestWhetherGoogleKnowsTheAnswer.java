@@ -19,10 +19,15 @@ public class TestWhetherGoogleKnowsTheAnswer {
 
     @Test
     public void test() throws Exception {
-        URIBuilder builder = new URIBuilder();
-        builder.setScheme("http").setHost("www.google.com").setPath("/search")
-                .setParameter("q", "the answer to life the universe and everything");
-        URI uri = builder.build();
+        // using a builder is much easier than manually encoding the URL with escaping white spaces in the query etc
+        // would be something like:
+        // https://www.google.com/search?q=the+answer+to+life+the+universe+and+everything&oq=the+answer+to+life+the+universe+and+everything
+        URI uri = new URIBuilder()
+            .setScheme("http")
+            .setHost("www.google.com")
+            .setPath("/search")
+            .setParameter("q", "the answer to life the universe and everything")
+            .build();
 
         // create and execute the request
         HttpClient httpClient = HttpClientBuilder.create().build();
@@ -33,8 +38,7 @@ public class TestWhetherGoogleKnowsTheAnswer {
         String content = EntityUtils.toString(response.getEntity());
 
         // check whether the web page contains the expected answer
-        assertTrue(content
-                .indexOf("42") > -1);
+        assertTrue(content.indexOf("42") > -1);
     }
 
 }
