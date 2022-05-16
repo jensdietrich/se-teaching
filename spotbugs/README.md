@@ -6,3 +6,5 @@ To run the analysis, run `mvn compile site`, the bug report will be created in `
 Also check the comments in the respective sources. 
 
 Note that `mvn clean site` will fail as classes are not compiled, `mvn clean compile site` will work  as expected.
+
+### Note: tested with Java 8, may need to be upgraded to support later versions !
