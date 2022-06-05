@@ -1,12 +1,11 @@
 package nz.ac.vuw.jenz.jsonparser;
 
 import nz.ac.vuw.jenz.jsonparser.parser.*;
-import org.antlr.runtime.tree.CommonTree;
+import nz.ac.vuw.jenz.jsonparser.util.DotOptions;
+import nz.ac.vuw.jenz.jsonparser.util.DotTreeRepresentation;
+import nz.ac.vuw.jenz.jsonparser.util.SimpleTree;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.tool.DOTGenerator;
 
 import java.io.*;
 import java.net.URL;
