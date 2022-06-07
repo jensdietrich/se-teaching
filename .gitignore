@@ -22,3 +22,13 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 coverage/target
+antlr/target
+jaxb/target
+mutationtesting/target
+spotbugs/target
+servlets/target
+service-whiteboxtesting/target
+quickcheck/target
+service-blackboxtesting/target
+xml-encoder/target
+ajax/target
