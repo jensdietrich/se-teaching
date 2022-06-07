@@ -1,5 +1,6 @@
 package nz.ac.vuw.jenz.jsonparser;
 
+import nz.ac.vuw.jenz.antr.util.Dot2Png;
 import nz.ac.vuw.jenz.jsonparser.parser.*;
 import nz.ac.vuw.jenz.antr.util.DotOptions;
 import nz.ac.vuw.jenz.antr.util.DotTreeRepresentation;
@@ -40,6 +41,8 @@ public class VisualiseAST {
         try (PrintWriter out = new PrintWriter(new FileWriter(dotFile))) {
             out.println(treeAsDot);
         }
+
+        Dot2Png.convert(dotFile);
 
     }
 }
