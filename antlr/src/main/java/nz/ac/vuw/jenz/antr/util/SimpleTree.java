@@ -1,4 +1,4 @@
-package nz.ac.vuw.jenz.jsonparser.util;
+package nz.ac.vuw.jenz.antr.util;
 
 import org.antlr.v4.runtime.CommonToken;
 import org.antlr.v4.runtime.Parser;

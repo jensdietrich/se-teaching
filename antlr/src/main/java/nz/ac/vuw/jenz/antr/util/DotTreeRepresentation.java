@@ -1,7 +1,4 @@
-package nz.ac.vuw.jenz.jsonparser.util;
-
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.ParseTree;
+package nz.ac.vuw.jenz.antr.util;
 
 import java.util.*;
 
