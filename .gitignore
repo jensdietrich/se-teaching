@@ -32,3 +32,4 @@ quickcheck/target
 service-blackboxtesting/target
 xml-encoder/target
 ajax/target
+visitor/target

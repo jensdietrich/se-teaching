@@ -1,0 +1,28 @@
+<html>
+<body>
+
+This package contains classes that can be used to define simple arithmetic expressions such as x+2=y . 
+It uses the Composite design pattern as follows: <p/>
+
+Component: Term<br/>
+Leaf: both Variable and Constant<br/>
+Composite: ComplexTerm<br/>
+<p/>
+
+In addition, the the <em>hierarchical</em> visitor pattern is used to execute functions on the composite structure. <p/>
+
+Visitor: ExpressionVisitor<br/>
+Visitable: Expression<br/>
+<p/>
+
+The project also contains three concrete visitors, VariableFinder - a visitor that collects all variables, StructurePrinter - a visitor that prints the structure of the expression on the console using indentation and line breaks, and IsGroundVisitor - a visitor to check whether an expression is ground in the sense of Prolog. 
+There are junit test cases Test1, Test2 and Test3 illustrating how to use the respective visitors. 
+
+Note that the implementation of StructurePrinter and IsGroundVisitor take advantage of the fact that we use the hierarchical visitor pattern that gives us more control over visiting branches in the composite structure. 
+<p/>
+
+
+&copy; Jens Dietrich, 2012
+
+</body>
+</html>
