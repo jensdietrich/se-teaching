@@ -5,7 +5,7 @@ import com.google.common.base.Preconditions;
 import java.io.File;
 
 /**
- * Utility that tries to run dot on the OS to convert a dot file into a png -- the orginal files names path is used, just the extension is replaced.
+ * Utility that tries to run dot to convert a dot file into a png -- the orginal files names path is used, just the extension is replaced.
  * @author jens dietrich
  */
 public class Dot2Png {
