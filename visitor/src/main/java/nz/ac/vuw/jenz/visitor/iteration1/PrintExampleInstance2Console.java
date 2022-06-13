@@ -1,6 +1,6 @@
 package nz.ac.vuw.jenz.visitor.iteration1;
 
-public class Test1 {
+public class PrintExampleInstance2Console {
 
 	public static void main(String[] args) {
 		
