@@ -33,3 +33,4 @@ service-blackboxtesting/target
 xml-encoder/target
 ajax/target
 visitor/target
+constant-inlining-and-folding/target
