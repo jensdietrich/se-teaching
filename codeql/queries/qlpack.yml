@@ -1,4 +1,4 @@
-name: codeql/java-examples
+name: codeql/java-examples2
 groups:
   - java
   - examples
