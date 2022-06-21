@@ -49,3 +49,5 @@ antlr/json.png
 antlr/json.svg
 codeql/codeql_db
 codeql/target
+codeql/queries/.cache
+codeql/.cache
