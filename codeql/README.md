@@ -21,6 +21,6 @@ The project contains some Java source code to be queried, and sh scripts to crea
 1. download and install Java pack as described above
 2. run `codeql query run --database codeql_db queries/subtype.ql --additional-packs ~/.codeql/packages/codeql/java-all`  
 
-The `--additional-packs` features looks unnecessary, but seems to be required
+The `--additional-packs` features looks unnecessary, but seems to be required. Replace `queries/subtype.ql` by the respective query. 
 
 
