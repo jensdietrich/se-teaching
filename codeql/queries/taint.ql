@@ -1,29 +1,14 @@
 import semmle.code.java.dataflow.DataFlow
 
-predicate isMain(Callable method) {
-  // The method must have the name "newJMXConnectorServer"...
-  // method.getName() = "main"
-  // could further restrict this:
-  // and method.getDeclaringType().hasQualifiedName("<package>", "<class>")
-  method.getName()="main"
-}
-
-predicate isOSCommand(Callable method) {
-  // The method must have the name "newJMXConnectorServer"...
-  // method.getName() = "bar"
-  // could further restrict this:
-  // and method.getDeclaringType().hasQualifiedName("<package>", "<class>")
-  method.getName()="exec"
-}
-
 class MyDataFlowConfiguration extends DataFlow::Configuration {
   MyDataFlowConfiguration() { this = "MyDataFlowConfiguration" }
+
   override predicate isSource(DataFlow::Node source) {
-    isMain(source.asParameter().getCallable())
+    source.asParameter().getCallable().getName()="main"
   }
 
   override predicate isSink(DataFlow::Node sink) {
-    isOSCommand(sink.asParameter().getCallable())
+    sink.asParameter().getCallable().getName()="bar"
   }
 }
 
