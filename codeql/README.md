@@ -23,4 +23,6 @@ The project contains some Java source code to be queried, and sh scripts to crea
 
 The `--additional-packs` features looks unnecessary, but seems to be required. Replace `queries/subtype.ql` by the respective query. 
 
+## Hint: Editing Queries
 
+The [online query console](https://lgtm.com/) offers autocompletion.
