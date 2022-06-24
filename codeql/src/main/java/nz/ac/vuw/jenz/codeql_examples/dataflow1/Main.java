@@ -1,7 +1,6 @@
-package nz.ac.vuw.jenz.codeql_examples.taint;
+package nz.ac.vuw.jenz.codeql_examples.dataflow1;
 
 public class Main {
-
 
     private static String FIELD = null;
 

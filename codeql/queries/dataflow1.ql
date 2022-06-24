@@ -9,6 +9,13 @@ class MyDataFlowConfiguration extends DataFlow::Configuration {
 
   override predicate isSink(DataFlow::Node sink) {
     sink.asParameter().getCallable().getName()="bar"
+    /*
+    exists(Call call |
+      call.getCallee().getName()=sink.asParameter().getCallable().getName() and sink.asParameter().getCallable().getName()= "exec"
+      // call.getCallee().getName()= "exec"
+      // call.getCallee().(Method).getName()="exec"
+    )
+    */
   }
 }
 
