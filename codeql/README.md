@@ -23,11 +23,11 @@ The project contains some Java source code to be queried, and sh scripts to crea
 
 The `--additional-packs` features looks unnecessary, but seems to be required. Replace `queries/subtype.ql` by the respective query. 
 
-## Hint: Editing Queries
+## Editing Queries
 
-The [online query console](https://lgtm.com/) offers autocompletion.
+Any text editoir can be used. The [online query console](https://lgtm.com/) offers autocompletion.
 
 ## Exporting Query Results to Files
 
 1. The following parameter used with `codeql query run` exports query results to the proprietary *bqrs* format: `-o query-results.bqrs`
-2. The following command can then be used to convert this to csv, where the column header row (1st row) correspond to variable names in the `select` clause (use the `as <varname>`) construct to assign simple names to expressions in the `select` clause: `codeql bqrs decode --format csv -o query-results.csv query-results.bqrs` . The column seperator used is comma, cell values are in double quotes.
+2. The following command can then be used to convert this to csv, where the column header row (1st row) correspond to variable names in the `select` clause (use the `as <varname>`) construct to assign simple names to expressions in the `select` clause: `codeql bqrs decode --format csv -o query-results.csv query-results.bqrs`. The column seperator used is comma, cell values are in double quotes. 
