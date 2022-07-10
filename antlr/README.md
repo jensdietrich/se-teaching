@@ -36,3 +36,11 @@ There is also a script to visualise the parse tree (`src/main/antlr4/nz/ac/vuw/j
 Note that the order of productions is used to define operator precedence. 
 
 
+## CSV Parsing
+
+There are two versions of grammars for CSV (comma-separated text) parsing, in `src/main/antlr4/nz/ac/vuw/jenz/csv/parser/CSV.g4` and `src/main/antlr4/nz/ac/vuw/jenz/csvplus/parser/CSVPlus.g4` , respectively. There are respective classes in `src/main/java` with scripts to print out the token stream and create a graphical representation of the generated parse trees. 
+
+The difference between the two grammars is that *csvplus* accepts comments. However, the grammar ignores comment tokens, so they do not show up in the generated parse trees.
+
+
+
