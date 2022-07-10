@@ -25,7 +25,7 @@ public class QueryParseTreeWithXPath {
     }
 
     public static void evaluateQuery(String inputLocation,String query) throws Exception {
-        URL url = JSON2XML.class.getResource(inputLocation);
+        URL url = QueryParseTreeWithXPath.class.getResource(inputLocation);
         JSONLexer lexer = new JSONLexer(CharStreams.fromFileName(url.getFile()));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JSONParser parser = new JSONParser(tokens);
