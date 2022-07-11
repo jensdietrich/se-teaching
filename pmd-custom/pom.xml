@@ -11,6 +11,7 @@
   <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <pmd.version>6.47.0</pmd.version>
   </properties>
 
   <licenses>
@@ -25,13 +26,19 @@
       <dependency>
           <groupId>net.sourceforge.pmd</groupId>
           <artifactId>pmd-java</artifactId>
-          <version>6.47.0</version>
+          <version>${pmd.version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/net.sourceforge.pmd/pmd-javascript -->
+      <dependency>
+          <groupId>net.sourceforge.pmd</groupId>
+          <artifactId>pmd-javascript</artifactId>
+          <version>${pmd.version}</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/net.sourceforge.pmd/pmd-test -->
       <dependency>
           <groupId>net.sourceforge.pmd</groupId>
           <artifactId>pmd-test</artifactId>
-          <version>6.47.0</version>
+          <version>${pmd.version}</version>
           <scope>test</scope>
       </dependency>
       <dependency>

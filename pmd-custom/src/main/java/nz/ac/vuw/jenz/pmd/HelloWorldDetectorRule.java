@@ -1,7 +1,5 @@
 package nz.ac.vuw.jenz.pmd;
 
-import net.sourceforge.pmd.RuleContext;
-import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceDeclaration;
 import net.sourceforge.pmd.lang.java.rule.AbstractJavaRule;
 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data
+        xmlns="http://pmd.sourceforge.net/rule-tests"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+    <test-code>
+        <description>!!! - 1</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>2</expected-linenumbers>
+        <code>
+            <![CDATA[
+            foo(a) {
+                return !!!a;
+            }
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>!!! - 2</description>
+        <!-- note that now we have two issues - the first and the last sentence -->
+        <expected-problems>2</expected-problems>
+        <expected-linenumbers>2,2</expected-linenumbers>
+        <code>
+            <![CDATA[
+            foo(a) {
+                return !!!!a;
+            }
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>!!</description>
+        <expected-problems>0</expected-problems>
+        <code>
+            <![CDATA[
+            foo(a) {
+                return !!a;
+            }
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>!</description>
+        <expected-problems>0</expected-problems>
+        <code>
+            <![CDATA[
+            foo(a) {
+                return !a;
+            }
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>!!! in comment</description>
+        <expected-problems>0</expected-problems>
+        <code>
+            <![CDATA[
+            foo(a) {
+                // used to be !!!a
+                return !a;
+            }
+            ]]>
+        </code>
+    </test-code>
+
+</test-data>

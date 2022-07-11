@@ -9,10 +9,10 @@
 
     <rule name="HelloWorldDetectorRule"
           language="java"
-          message="Classes called HelloWorld should not be in production code."
+          message="Classes called HelloWorld should not be in production code"
           class="nz.ac.vuw.jenz.pmd.HelloWorldDetectorRule" >
         <description>
-            TODO
+            Classes should not be named HelloWorld
         </description>
         <priority>3</priority>
     </rule>
@@ -20,10 +20,10 @@
 
     <rule name="HelloWorldDetectorRule2"
           language="java"
-          message="Classes called HelloWorld should not be in production code (xml version)."
+          message="Classes called HelloWorld should not be in production code (xml version)"
           class="net.sourceforge.pmd.lang.rule.XPathRule" >
         <description>
-            TODO
+            Classes should not be named HelloWorld
         </description>
         <priority>3</priority>
         <properties>
@@ -37,26 +37,53 @@
 
     <rule name="HashcodeShouldNotReturnConstant"
           language="java"
-          message="hashCode should not return a constant value."
+          message="hashCode should not return a constant value"
           class="nz.ac.vuw.jenz.pmd.HashcodeShouldNotReturnConstant" >
         <description>
-            TODO
+            hashCode should not return a constant
         </description>
         <priority>3</priority>
     </rule>
 
     <rule name="HashcodeShouldNotReturnConstant2"
           language="java"
-          message="hashCode should not return a constant value."
+          message="hashCode should not return a constant value"
           class="net.sourceforge.pmd.lang.rule.XPathRule" >
         <description>
-            TODO
+            hashCode should not return a constant
         </description>
         <priority>3</priority>
         <properties>
             <property name="xpath"><value>
                 <![CDATA[
                 //MethodDeclaration[@Name="hashCode"]//ReturnStatement//Literal[pmd-java:typeIs('int')]
+            ]]>
+            </value></property>
+        </properties>
+    </rule>
+
+    <rule name="NoTripleBang"
+          language="ecmascript"
+          message="programs should not use triple bang (!!!)"
+          class="nz.ac.vuw.jenz.pmd.NoTripleBang" >
+        <description>
+            programs should not use triple bang (!!!)
+        </description>
+        <priority>3</priority>
+    </rule>
+
+    <rule name="NoTripleBang2"
+          language="ecmascript"
+          message="programs should not use triple bang (!!!)"
+          class="net.sourceforge.pmd.lang.rule.XPathRule" >
+        <description>
+            programs should not use triple bang (!!!)
+        </description>
+        <priority>3</priority>
+        <properties>
+            <property name="xpath"><value>
+                <![CDATA[
+                //UnaryExpression[@Image="!"]/UnaryExpression[@Image="!"]/UnaryExpression[@Image="!"]
             ]]>
             </value></property>
         </properties>
