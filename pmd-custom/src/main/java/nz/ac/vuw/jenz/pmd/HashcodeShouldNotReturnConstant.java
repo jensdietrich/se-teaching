@@ -32,18 +32,32 @@ public class HashcodeShouldNotReturnConstant extends AbstractJavaRule {
     public Object visit(ASTReturnStatement node, Object data) {
         if (isHashCode) {
             Set<JavaNode> leaves = collectLeaves(node);
-            if (leaves.size()==1) {
-                JavaNode leaf = leaves.iterator().next();
-                if (leaf instanceof ASTLiteral && ((ASTLiteral)leaf).isIntLiteral()) {
-                    asCtx(data).addViolation(node);
-                }
+            Set<ASTLiteral> intLiteralLeaves = leaves.stream()
+                .filter(ASTLiteral.class::isInstance)
+                .map(ASTLiteral.class::cast)
+                .filter(ASTLiteral::isIntLiteral)
+                .collect(Collectors.toSet());
+            if (leaves.size()==intLiteralLeaves.size()) {
+                asCtx(data).addViolation(node);
             }
         }
         return null;
     }
 
     private Set<JavaNode> collectLeaves(JavaNode node) {
+
         Set<JavaNode> leaves = new HashSet<>();
+
+        // the following block improves recall by correctly extracting return values from conditional expressions
+        // to deal with code like "return flag?0:1"
+        // the child node representing the condition is ignored
+        if (node instanceof ASTConditionalExpression) {
+            ASTConditionalExpression condExpr = (ASTConditionalExpression)node;
+            leaves.addAll(collectLeaves(condExpr.getTrueAlternative()));
+            leaves.addAll(collectLeaves((JavaNode)condExpr.getFalseAlternative()));
+            return leaves;
+        }
+
         if (node.getNumChildren()==0) {
             leaves.add(node);
         }
