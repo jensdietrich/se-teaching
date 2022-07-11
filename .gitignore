@@ -52,3 +52,4 @@ codeql/target
 codeql/queries/.cache
 codeql/.cache
 codeql-out.txt
+pmd-custom/target

@@ -1,0 +1,38 @@
+<ruleset name="Custom Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        My custom rules
+    </description>
+
+    <rule name="HelloWorldDetectorRule"
+          language="java"
+          message="Classes called HelloWorld should not be in production code."
+          class="nz.ac.vuw.jenz.pmd.HelloWorldDetectorRule" >
+        <description>
+            TODO
+        </description>
+        <priority>3</priority>
+    </rule>
+
+
+    <rule name="HelloWorldDetectorRule2"
+          language="java"
+          message="Classes called HelloWorld should not be in production code (xml version)."
+          class="net.sourceforge.pmd.lang.rule.XPathRule" >
+        <description>
+            TODO
+        </description>
+        <priority>3</priority>
+        <properties>
+        <property name="xpath"><value>
+            <![CDATA[
+                //ClassOrInterfaceDeclaration[@SimpleName="HelloWorld"]
+            ]]>
+            </value></property>
+        </properties>
+    </rule>
+
+</ruleset>

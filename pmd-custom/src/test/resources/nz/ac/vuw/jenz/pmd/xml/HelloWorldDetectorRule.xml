@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data
+        xmlns="http://pmd.sourceforge.net/rule-tests"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+    <test-code>
+        <description>correct class</description>
+        <expected-problems>0</expected-problems>
+        <code>
+            <![CDATA[
+            public class Foo {}
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>failure case (class)</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>1</expected-linenumbers>
+        <code>
+            <![CDATA[
+            public class HelloWorld { int x = 0; }
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>failure case (interface)</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>1</expected-linenumbers>
+        <code>
+            <![CDATA[
+            public interface HelloWorld {}
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>failure case (class with imports)</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>2</expected-linenumbers>
+        <code>
+            <![CDATA[
+            import java.util.*;
+            public class HelloWorld { int x = 0; }
+            ]]>
+        </code>
+    </test-code>
+
+</test-data>
