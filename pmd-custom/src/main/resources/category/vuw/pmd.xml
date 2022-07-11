@@ -35,4 +35,31 @@
         </properties>
     </rule>
 
+    <rule name="HashcodeShouldNotReturnConstant"
+          language="java"
+          message="hashCode should not return a constant value."
+          class="nz.ac.vuw.jenz.pmd.HashcodeShouldNotReturnConstant" >
+        <description>
+            TODO
+        </description>
+        <priority>3</priority>
+    </rule>
+
+    <rule name="HashcodeShouldNotReturnConstant2"
+          language="java"
+          message="hashCode should not return a constant value."
+          class="net.sourceforge.pmd.lang.rule.XPathRule" >
+        <description>
+            TODO
+        </description>
+        <priority>3</priority>
+        <properties>
+            <property name="xpath"><value>
+                <![CDATA[
+                //MethodDeclaration[@Name="hashCode"]//ReturnStatement//Literal[pmd-java:typeIs('int')]
+            ]]>
+            </value></property>
+        </properties>
+    </rule>
+
 </ruleset>

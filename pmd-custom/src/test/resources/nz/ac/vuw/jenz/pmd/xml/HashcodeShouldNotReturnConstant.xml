@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data
+        xmlns="http://pmd.sourceforge.net/rule-tests"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+    <test-code>
+        <description>should not detect - no matching method</description>
+        <expected-problems>0</expected-problems>
+        <code>
+            <![CDATA[
+            public class Foo {}
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>should not detect - hashCode returns dynamically computed value</description>
+        <expected-problems>0</expected-problems>
+        <code>
+            <![CDATA[
+            public class Foo {
+                public int hashCode() {
+                    return System.identityHashCode();
+                }
+            }
+            ]]>
+        </code>
+    </test-code>
+
+    <test-code>
+        <description>should detect - simple case</description>
+        <expected-problems>1</expected-problems>
+        <code>
+            <![CDATA[
+            public class Foo {
+                public int hashCode() {
+                    return 42;
+                }
+            }
+            ]]>
+        </code>
+    </test-code>
+    <test-code>
+        <description>should detect - branch within return</description>
+        <expected-problems>1</expected-problems>
+        <code>
+            <![CDATA[
+            public class Foo {
+                public int hashCode() {
+                    boolean flag = true;
+                    return flag?0:42;
+                }
+            }
+            ]]>
+        </code>
+    </test-code>
+
+</test-data>

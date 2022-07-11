@@ -26,6 +26,23 @@ To aid the writing of xpath queries, pmd comes with a visual query designer / ev
 3. start the tool with `./bin/run.sh designer`
 
 
+## HashcodeShouldNotReturnConstant Example
+
+The rule finds implementations of `hashCode()` returning an int literal. This is an anti-pattern as the performance of hashed containers deteriorates from constant to linear for elements that are instances of the respective type.
+
+Example:
+
+```java
+public class Foo {
+	public int hashCode() {
+		return 42;
+	}
+}
+```
+
+There is a Java and an XPath-based definitions in the repository. Note that for both one test fails, showing the limitations of the slightly simplified definitions. 
+
+
 ## More Info
 
 [This](https://pmd.github.io/latest/pmd_userdocs_extending_writing_rules_intro.html) is a tutorial on how yto write custom rules.
