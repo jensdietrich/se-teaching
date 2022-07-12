@@ -6,7 +6,7 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>antlr</name>
-  <url>http://bitbucket.org/jensdietrich/teaching</url>
+  <url>https://github.com/jensdietrich/se-teaching/</url>
 
   <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
