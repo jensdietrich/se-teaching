@@ -53,3 +53,4 @@ codeql/queries/.cache
 codeql/.cache
 codeql-out.txt
 pmd-custom/target
+javaparser-api/target
