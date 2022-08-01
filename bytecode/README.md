@@ -14,5 +14,5 @@ Examples are suitable to discuss the following features:
 8. reflection on synthetic fields
 9. constant inlining and folding 
 
-See [https://ecs.wgtn.ac.nz/Courses/SWEN438_2022T2/LectureSchedule](VUW SWEN438 lectures notes) for discussion.
+See [VUW SWEN438 lectures notes](https://ecs.wgtn.ac.nz/Courses/SWEN438_2022T2/LectureSchedule) for discussion.
 
