@@ -15,9 +15,9 @@ public class AnalysisMemDB {
         return fieldsWritten;
     }
 
-    public static void add(String method) {
-        if (fieldsWritten.add(method)) {
-            System.out.println("method added: " + method);
+    public static void add(String fieldInfo) {
+        if (fieldsWritten.add(fieldInfo)) {
+            System.out.println("field access recorded: " + fieldInfo);
         }
     }
 

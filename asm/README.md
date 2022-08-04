@@ -15,3 +15,17 @@ This scenario implements an agent that monitors write access to fields when a pr
 The agent class is `nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteAgent`, the actual byte code manipulation is implemented as an ASM visitor in `nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteVisitor`. 
 
 There are some simple tests that demonstrate this functionality. Note that tests may have to be run with Maven (`mvn test`), IDEs may not be able to pick up the surefire configuration.  
+
+## Deploying and Using the Agent
+
+An agent jar can be built with `mvn package` (note that this includes some redundant classes from other packages not actually needed). This is achieved by using the *maven assembly plugin* configured in `pom.xml`. In particular, the manifest of this jar contains the agent class set as *Premain-Class*.
+
+The application also contains a very simple application `nz.ac.vuw.jenz.asm.example.App` that accesses a field. After building the project, run the following base configuration:
+
+`java -cp target/classes/ nz.ac.vuw.jenz.asm.example.App`
+
+This will log start and termination to the console. Then run the application with the agent deployed as JVM argument as follows: 
+
+`java -cp target/classes/ -javaagent:target/log-field-write-agent.jar nz.ac.vuw.jenz.asm.example.App`
+
+This will also log the field write access to the console. 

@@ -57,8 +57,8 @@ public class LogFieldWriteVisitor extends ClassVisitor {
     }
 
     public static void fieldAccessLogged(String clazz, String name) {
-        String methodAsString = clazz.replace('/','.') + "::" + name;
-        AnalysisMemDB.add(methodAsString);
+        String fieldInfo = clazz.replace('/','.') + "::" + name;
+        AnalysisMemDB.add(fieldInfo);
     }
 
 }
