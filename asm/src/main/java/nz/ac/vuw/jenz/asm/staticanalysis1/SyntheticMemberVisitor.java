@@ -1,4 +1,4 @@
-package nz.ac.vuw.jenz.asm.staticanalysis;
+package nz.ac.vuw.jenz.asm.staticanalysis1;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.FieldVisitor;
@@ -7,11 +7,11 @@ import org.objectweb.asm.Opcodes;
 
 import java.util.Set;
 
-class SyntheticMemberFinder extends ClassVisitor {
+class SyntheticMemberVisitor extends ClassVisitor {
     private Set<String> syntheticMembers = null;
     private String currentClass = null;
 
-    public SyntheticMemberFinder(Set<String> syntheticMembers) {
+    public SyntheticMemberVisitor(Set<String> syntheticMembers) {
         super(Opcodes.ASM9);  // bytecode version supported by asm
         this.syntheticMembers = syntheticMembers;
     }
@@ -27,7 +27,7 @@ class SyntheticMemberFinder extends ClassVisitor {
     @Override
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         if ((access & Opcodes.ACC_SYNTHETIC) != 0) {
-            syntheticMembers.add(this.currentClass + "::" + name); // to keep it simple, could add descriptor to deal with overloading
+            syntheticMembers.add(this.currentClass + "::" + name + descriptor);
         }
         return null; // do not traverse into
     }
@@ -36,7 +36,7 @@ class SyntheticMemberFinder extends ClassVisitor {
     @Override
     public FieldVisitor visitField(int access, String name, String descriptor, String signature, Object value) {
         if ((access & Opcodes.ACC_SYNTHETIC) != 0) {
-            syntheticMembers.add(this.currentClass + "::" + name); // to keep it simple, could add descriptor to deal with overloading
+            syntheticMembers.add(this.currentClass + "::" + name);
         }
         return null; // do not traverse into        }
     }

@@ -1,11 +1,19 @@
 # ASM-Based Bytecode Analysis and Manipulation
 
-## Static Analysis 1 - Finding Synthetic Fields and Methods
+## Static Analysis Example 1 - Finding Synthetic Fields and Methods
 
-`nz.ac.vuw.jenz.asm.staticanalysis1.FindSyntheticMethodsAndFields` is an example of a simple static analysis. It scans bytecode for the presence of synthetic fields and methods. It uses a byte code visitor for this purpose, defined in `SyntheticMemberFinder`.
+`nz.ac.vuw.jenz.asm.staticanalysis1.FindSyntheticMethodsAndFields` is an example of a simple static analysis. It scans bytecode for the presence of synthetic fields and methods. It uses a byte code visitor for this purpose, defined in `SyntheticMemberVisitor`.
 
 Run unit tests in `nz.ac.vuw.jenz.asm.staticanalysis1.TestFindSyntheticMethodsAndFields` to see this in action, they use test data with synthetic field generated to access outer class instances, and synthetic bridge methods
 generated to compile an overridden method with covariant return type.
+
+## Static Analysis Example 2 - Finding Field Writes in Methods
+
+The second analysis detects field writes, it is implemented in `nz.ac.vuw.jenz.asm.staticanalysis2.FindFieldWrites` and uses a visitor in the same package. The visitor now is *nested*, i.e. `visitMethod` returns another visitor to analyse the body of the method being visited.
+
+There are unit tests that illustrates how this works.
+
+Note that the analysis also detects field writes in the special methods `<init>` and `<clinit>`, representing object and class initialisation, respectively. 
 
 ## Dynamic Analysis and Byte Code Manipulation with an ASM-Based Agent
 
@@ -14,7 +22,7 @@ This scenario implements an agent that monitors write access to fields when a pr
 
 The agent class is `nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteAgent`, the actual byte code manipulation is implemented as an ASM visitor in `nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteVisitor`. 
 
-There are some simple tests that demonstrate this functionality. Note that tests may have to be run with Maven (`mvn test`), IDEs may not be able to pick up the surefire configuration.  
+There are no unit tests. Unit testing agents can be tricky as the JVM needs to be started with the `-javaagent` parameter, and the agent is just to be built. There are some approaches to reload classes with an agent, such as the [ea-agentloader](https://mvnrepository.com/artifact/com.ea.agentloader/ea-agent-loader) and [bytebuddy](https://bytebuddy.net/).
 
 ## Deploying and Using the Agent
 
