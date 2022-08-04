@@ -20,7 +20,7 @@ There are some simple tests that demonstrate this functionality. Note that tests
 
 An agent jar can be built with `mvn package` (note that this includes some redundant classes from other packages not actually needed). This is achieved by using the *maven assembly plugin* configured in `pom.xml`. In particular, the manifest of this jar contains the agent class set as *Premain-Class*.
 
-The application also contains a very simple application `nz.ac.vuw.jenz.asm.example.App` that accesses a field. After building the project, run the following base configuration:
+The application also contains a very simple application `nz.ac.vuw.jenz.asm.example.App` that accesses a field. After building the project, run the following command:
 
 `java -cp target/classes/ nz.ac.vuw.jenz.asm.example.App`
 
