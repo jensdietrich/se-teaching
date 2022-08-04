@@ -11,7 +11,7 @@ public class TestFieldAccess {
 
     @BeforeAll
     public static void installAgent() {
-        AgentLoader.loadAgentClass(NullLoggerAgent.class.getName(),null);
+        AgentLoader.loadAgentClass(LogFieldWriteAgent.class.getName(),null);
     }
 
     @BeforeEach
