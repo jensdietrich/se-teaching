@@ -54,3 +54,4 @@ codeql/.cache
 codeql-out.txt
 pmd-custom/target
 javaparser-api/target
+asm/target
