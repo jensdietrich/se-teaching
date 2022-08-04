@@ -26,6 +26,7 @@ public class CheckForNullableFieldAccess extends ClassVisitor {
     @Override
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         MethodVisitor mv = super.visitMethod(access, name, descriptor, signature,exceptions);
+        // constructors / static initialisers write fields -- just remove this to make functionality more transparent
         boolean isRegularMethod = !(name.equals("<clinit>") || name.equals("<init>"));
         if (isRegularMethod) {
             return new LogFieldAccessVisitor(mv);
@@ -59,8 +60,5 @@ public class CheckForNullableFieldAccess extends ClassVisitor {
         String methodAsString = clazz.replace('/','.') + "::" + name;
         AnalysisMemDB.add(methodAsString);
     }
-
-
-
 
 }
