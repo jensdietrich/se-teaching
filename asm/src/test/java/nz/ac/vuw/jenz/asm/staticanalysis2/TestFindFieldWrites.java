@@ -1,6 +1,5 @@
 package nz.ac.vuw.jenz.asm.staticanalysis2;
 
-import nz.ac.vuw.jenz.asm.instrumentation.data.Foo;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -13,7 +12,6 @@ public class TestFindFieldWrites {
 
     @Test
     public void testFieldWrites() throws IOException {
-        Foo obj = new Foo();
         File classes = new File("target/test-classes/nz/ac/vuw/jenz/asm/staticanalysis2/data");
         Assumptions.assumeTrue(classes.exists());
         Set<String> fieldWrites = FindFieldWrites.findFieldWrites(classes);
@@ -23,8 +21,5 @@ public class TestFindFieldWrites {
         assertTrue(fieldWrites.contains("nz.ac.vuw.jenz.asm.staticanalysis2.data.Foo::M1 -> F"));
         assertTrue(fieldWrites.contains("nz.ac.vuw.jenz.asm.staticanalysis2.data.Foo::<init> -> f"));
         assertTrue(fieldWrites.contains("nz.ac.vuw.jenz.asm.staticanalysis2.data.Foo::<clinit> -> F"));
-
     }
-
-
 }

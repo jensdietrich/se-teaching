@@ -5,6 +5,9 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * Instrument field writes and log the results on the console.
  * @author jens dietrich
@@ -57,8 +60,13 @@ public class LogFieldWriteVisitor extends ClassVisitor {
     }
 
     public static void fieldAccessLogged(String clazz, String name) {
-        String fieldInfo = clazz.replace('/','.') + "::" + name;
-        AnalysisMemDB.add(fieldInfo);
+        String fieldInfo = clazz.replace('/','.') + "::" + name + System.lineSeparator() ;
+
+        // add stacktrace to provide some context that is not available when doing a static analysis
+        String stacktraceAsString = Stream.of(Thread.currentThread().getStackTrace())
+            .map(stacktraceElement -> "\t > " + stacktraceElement.toString())
+            .collect(Collectors.joining(System.lineSeparator()));
+        AnalysisMemDB.add(fieldInfo + stacktraceAsString);
     }
 
 }

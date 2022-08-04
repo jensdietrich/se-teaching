@@ -36,4 +36,16 @@ This will log start and termination to the console. Then run the application wit
 
 `java -cp target/classes/ -javaagent:target/log-field-write-agent.jar nz.ac.vuw.jenz.asm.example.App`
 
-This will also log the field write access to the console. 
+This will also log the field write access to the console. This will look somehow like this:
+
+```java
+starting app: class nz.ac.vuw.jenz.asm.example.App
+field access recorded: nz.ac.vuw.jenz.asm.example.App::field
+         > java.base/java.lang.Thread.getStackTrace(Thread.java:1606)
+         > nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteVisitor.fieldAccessLogged(LogFieldWriteVisitor.java:66)
+         > nz.ac.vuw.jenz.asm.example.App.main(App.java:13)
+terminating app: class nz.ac.vuw.jenz.asm.example.App
+
+```
+
+While the static analysis (example 2 described before) does also report the method where the field write takes place, the dynamic analsis can do more -- it can report the stack trace, i.e. the invocation chain of methods leading to field access. This  provides more analysis context. 
