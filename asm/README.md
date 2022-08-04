@@ -1,11 +1,11 @@
 # ASM-Based Bytecode Analysis and Manipulation
 
-## Static Analysis
+## Static Analysis 1 - Finding Synthetic Fields and Methods
 
-`nz.ac.vuw.jenz.asm.staticanalysis.FindSyntheticMethodsAndFields` is an example of a simple static analysis. It scans bytecode for the presence of synthetic fields and methods. It uses a byte code visitor for this purpose, defined in `SyntheticMemberFinder`.
+`nz.ac.vuw.jenz.asm.staticanalysis1.FindSyntheticMethodsAndFields` is an example of a simple static analysis. It scans bytecode for the presence of synthetic fields and methods. It uses a byte code visitor for this purpose, defined in `SyntheticMemberFinder`.
 
-To run this utility, it needs one argument pointing to a folder containing bytecode (i.e. some Java classes). It is possible to run the tool on itself by using `target/classes` as argument (this folder is created when building the project with `mvn compile`). 
-
+Run unit tests in `nz.ac.vuw.jenz.asm.staticanalysis1.TestFindSyntheticMethodsAndFields` to see this in action, they use test data with synthetic field generated to access outer class instances, and synthetic bridge methods
+generated to compile an overridden method with covariant return type.
 
 ## Dynamic Analysis and Byte Code Manipulation with an ASM-Based Agent
 
