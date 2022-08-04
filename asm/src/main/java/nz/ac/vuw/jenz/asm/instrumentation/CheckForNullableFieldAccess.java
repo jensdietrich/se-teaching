@@ -56,7 +56,8 @@ public class CheckForNullableFieldAccess extends ClassVisitor {
     }
 
     public static void fieldAccessLogged(String clazz, String name) {
-        AnalysisMemDB.add(clazz.replace('/','.') + "::" + name);
+        String methodAsString = clazz.replace('/','.') + "::" + name;
+        AnalysisMemDB.add(methodAsString);
     }
 
 
