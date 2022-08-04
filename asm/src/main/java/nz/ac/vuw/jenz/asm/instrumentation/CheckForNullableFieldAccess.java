@@ -45,19 +45,17 @@ public class CheckForNullableFieldAccess extends ClassVisitor {
         @Override
         public void visitFieldInsn(int opcode, String owner, String name, String descriptor) {
             if (opcode==Opcodes.PUTFIELD || opcode==Opcodes.PUTSTATIC) { // writes only
-                if (descriptor.startsWith("L") || descriptor.startsWith("[")) { // objects and array types only
-                    mv.visitInsn(Opcodes.DUP);
-                    mv.visitLdcInsn(owner);
-                    mv.visitLdcInsn(name);
-                    mv.visitLdcInsn(descriptor);
-                    mv.visitMethodInsn(Opcodes.INVOKESTATIC, CheckForNullableFieldAccess.class.getName().replace('.', '/'), "fieldAccessLogged", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", false);
-                }
+                // put arguments on stack for fieldAccessLogged invocation
+                mv.visitLdcInsn(owner);
+                mv.visitLdcInsn(name);
+                // invoke #fieldAccessLogged
+                mv.visitMethodInsn(Opcodes.INVOKESTATIC, CheckForNullableFieldAccess.class.getName().replace('.', '/'), "fieldAccessLogged", "(Ljava/lang/String;Ljava/lang/String;)V", false);
             }
             super.visitFieldInsn(opcode, owner, name, descriptor);
         }
     }
 
-    public static void fieldAccessLogged(Object value, String clazz, String name, String descriptor) {
+    public static void fieldAccessLogged(String clazz, String name) {
         AnalysisMemDB.add(clazz.replace('/','.') + "::" + name);
     }
 
