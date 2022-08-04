@@ -48,4 +48,4 @@ terminating app: class nz.ac.vuw.jenz.asm.example.App
 
 ```
 
-While the static analysis (example 2 described before) does also report the method where the field write takes place, the dynamic analsis can do more -- it can report the stack trace, i.e. the invocation chain of methods leading to field access. This  provides more analysis context. 
+While the static analysis (example 2 described before) does also report the method where the field write takes place, the dynamic analsis can do more -- it can report the stack trace, i.e. the invocation chain of methods leading to field access. This  provides more analysis context. Note that the top stackframes are created by the instrumentation, in a real-world application, those would be removed (i.e. the stacktrace would be sanitised).
