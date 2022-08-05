@@ -6,6 +6,10 @@ import org.objectweb.asm.Opcodes;
 
 import java.util.Set;
 
+/**
+ * Visitor to record field writes.
+ * @author jens dietrich
+ */
 class FieldWriteVisitor extends ClassVisitor {
     private Set<String> fieldWrites = null;
     private String currentClass = null;

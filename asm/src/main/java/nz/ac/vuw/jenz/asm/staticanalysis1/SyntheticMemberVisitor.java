@@ -7,6 +7,10 @@ import org.objectweb.asm.Opcodes;
 
 import java.util.Set;
 
+/**
+ * Visitor to record synthetic method and fields.
+ * @author jens dietrich
+ */
 class SyntheticMemberVisitor extends ClassVisitor {
     private Set<String> syntheticMembers = null;
     private String currentClass = null;
