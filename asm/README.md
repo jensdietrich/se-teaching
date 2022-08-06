@@ -32,7 +32,15 @@ The application also contains a very simple application `nz.ac.vuw.jenz.asm.exam
 
 `java -cp target/classes/ nz.ac.vuw.jenz.asm.example.App`
 
-This will log start and termination to the console. Then run the application with the agent deployed as JVM argument as follows: 
+This will log start and termination to the console. The console output will look like this:
+
+```java
+starting app: class nz.ac.vuw.jenz.asm.example.App
+terminating app: class nz.ac.vuw.jenz.asm.example.App
+
+```
+
+Then run the application with the agent deployed as JVM argument as follows: 
 
 `java -cp target/classes/ -javaagent:target/log-field-write-agent.jar nz.ac.vuw.jenz.asm.example.App`
 

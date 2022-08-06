@@ -26,7 +26,6 @@ public class FindSyntheticMethodsAndFields {
             throw new IllegalArgumentException("input folder does not exist: " + input.getAbsolutePath());
         }
 
-
         // do something with results -- print to console
         Set<String> syntheticMembers = findSyntheticMembers(input);
         System.out.println("synthetic methods and fields found in " + input.getAbsolutePath());
