@@ -9,7 +9,6 @@ public class Outer {
     public void foo() {}
     class Inner {
         public void bar() {
-            foo();
-        }
+            foo();}
     }
 }

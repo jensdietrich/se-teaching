@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
  * @author jens dietrich
  */
 public class FindFieldWrites {
-
     public static void main(String[] args) throws IOException {
         // some precondition checks
         if (args.length == 0) {
@@ -52,6 +51,5 @@ public class FindFieldWrites {
             }
         }
         return fieldWrites;
-
     }
 }

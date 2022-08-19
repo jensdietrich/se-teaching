@@ -4,6 +4,10 @@ public class Main {
 
     private static String FIELD = null;
 
+    public static void main (String[] args) throws Exception {
+        main("foo");
+    }
+
     public static void main (String argM) throws Exception {
         FIELD = argM;
         foo();

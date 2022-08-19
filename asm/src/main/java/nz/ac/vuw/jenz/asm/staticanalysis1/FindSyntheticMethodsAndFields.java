@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
  * @author jens dietrich
  */
 public class FindSyntheticMethodsAndFields {
-
     public static void main(String[] args) throws IOException {
         // some precondition checks
         if (args.length == 0) {
@@ -34,7 +33,6 @@ public class FindSyntheticMethodsAndFields {
         }
     }
     public static Set<String> findSyntheticMembers (File folderWithClassFiles) throws IOException {
-
         // collect class files
         List<File> classFiles = Files.walk(folderWithClassFiles.toPath())
             .map(p -> p.toFile())
@@ -50,6 +48,5 @@ public class FindSyntheticMethodsAndFields {
             }
         }
         return syntheticMembers;
-
     }
 }

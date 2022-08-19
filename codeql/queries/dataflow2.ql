@@ -2,7 +2,7 @@ import semmle.code.java.dataflow.DataFlow
 
 class Configuration extends DataFlow::Configuration {
   Configuration() {
-    this = "LiteralToURL Configuration"
+    this = "MainParamToURL Configuration"
   }
 
   override predicate isSource(DataFlow::Node source) {
@@ -13,7 +13,7 @@ class Configuration extends DataFlow::Configuration {
   override predicate isSink(DataFlow::Node sink) {
     exists(Call call |
       sink.asExpr() = call.getArgument(0) and
-      call.getCallee().(Constructor).getDeclaringType().hasQualifiedName("java.net", "URL")
+      call.getCallee().(Constructor).getDeclaringType().hasQualifiedName("java.lang", "Runtime")
     )
   }
 }

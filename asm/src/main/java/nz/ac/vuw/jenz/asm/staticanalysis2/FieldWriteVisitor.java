@@ -3,7 +3,6 @@ package nz.ac.vuw.jenz.asm.staticanalysis2;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-
 import java.util.Set;
 
 /**
@@ -30,6 +29,7 @@ class FieldWriteVisitor extends ClassVisitor {
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         this.currentMethod = this.currentClass + "::" + name ;  // skip descriptor to keep this simple
         return new MethodVisitor(Opcodes.ASM9) {
+
             @Override
             public void visitFieldInsn(int opcode, String owner, String name, String descriptor) {
                 if (opcode==Opcodes.PUTFIELD || opcode==Opcodes.PUTSTATIC) {
