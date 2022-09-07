@@ -18,7 +18,7 @@ Note that the analysis also detects field writes in the special methods `<init>`
 ## Dynamic Analysis and Byte Code Manipulation with an ASM-Based Agent
 
 
-This scenario implements an agent that monitors write access to fields when a program executes. Field writes are intercepted, and a record is stored in a simple memory database. A testing-scope dependency and some reconfiguration of the surefire testing plugin are used to test the agend without actually emplying it as a `java` runtime argument, see `pom.xml` for details.  
+This scenario implements an agent that monitors write access to fields when a program executes. Field writes are intercepted, and a record is stored in a simple memory database. A testing-scope dependency and some reconfiguration of the surefire testing plugin are used to test the agent without actually deploying it as a `java` runtime argument, see `pom.xml` for details.  
 
 The agent class is `nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteAgent`, the actual byte code manipulation is implemented as an ASM visitor in `nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteVisitor`. 
 
