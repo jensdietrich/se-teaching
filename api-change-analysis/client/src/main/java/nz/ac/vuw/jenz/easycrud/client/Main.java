@@ -7,7 +7,10 @@ public class Main {
 
     public static void main (String[] args) {
         PersistencyService service = new JSONPersistencyService();
+        System.out.println("using persistency service version " + PersistencyService.VERSION);
         f1(service);
+
+        System.out.println("program executed, terminating now");
     }
 
     public static void f1(PersistencyService service) {

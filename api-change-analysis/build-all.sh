@@ -4,17 +4,29 @@
 ## @author jens dietrich
 
 cd baseline
-mvn clean install
+mvn install
 cd ..
 
 cd client
-mvn clean package
+mvn package
 cd ..
 
 cd change1
-mvn clean package
+mvn package
 cd ..
 
 cd change2
-mvn clean package
+mvn package
+cd ..
+
+cd change3
+mvn package
+cd ..
+
+cd change4
+mvn package
+cd ..
+
+cd change5
+mvn package
 cd ..
