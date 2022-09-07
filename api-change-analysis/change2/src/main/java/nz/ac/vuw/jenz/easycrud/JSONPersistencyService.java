@@ -1,6 +1,6 @@
 package nz.ac.vuw.jenz.easycrud;
 
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * A simple service implementation. All dummies, only APIs matter here.
@@ -28,7 +28,7 @@ public class JSONPersistencyService extends PersistencyService {
     }
 
     @Override
-    public Collection<Object> readAll() {
+    public Set<Object> readAll() {
         return null;
     }
 }

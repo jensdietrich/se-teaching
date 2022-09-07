@@ -7,9 +7,18 @@ Then there are several `/change*` projects which define alternative versions `1.
 There are sh scripts illustrating the issues caused by various changes. Before runing those scripts, run `build-all.sh` to build all projects and produce the respective components.
 
 
-`run-with-change*.sh` runs the client with the updated service `easycrud-1.1.0`, without recompiling it first. 
+`run-with-change*.sh` runs the client with the updated service `easycrud-1.1.0`, without recompiling it first. For changes that break binary compatibility, this will result in an error (subtype of [LinkageError](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/LinkageError.html)).
 
 `check-change*.sh` runs [revapi]() in order to diff `easycrud-1.0.0.jar` and the respective `easycrud-1.1.0.jar`, and report any incompatible changes that may break clients.
+
+
+| update      | Description | Source Compatible | Binary Compatible | Notes |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| `change2`   |  `PersistencyService::readAll` has been changed from an abstract class to an interface -- this means that the invocation instructions in clients need to be changed too  | yes | no | this can be easily addressed by updating the dependency in client, and rebuilding the client |
+| `change1`   | the return type of `PersistencyService::readAll` is replaced by a subtype  | yes | no | this can be easily addressed by updating the dependency in client, and rebuilding the client |
+
+
+
 
 
 

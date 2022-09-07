@@ -1,6 +1,6 @@
 package nz.ac.vuw.jenz.easycrud;
 
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * A simple CRUD service.
@@ -19,6 +19,6 @@ public abstract class PersistencyService {
 
     public abstract  boolean read(String query);
 
-    public abstract  Collection<Object> readAll();
+    public abstract  Set<Object> readAll();
 
 }

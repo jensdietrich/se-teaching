@@ -19,6 +19,10 @@ public class AnalysisMemDB {
         if (fieldsWritten.add(fieldInfo)) {
             System.out.println("field access recorded: " + fieldInfo);
         }
+
+
+        // we could also capture the stacktrace here in order to record more context , i.e. where the
+        // invocation is coming from
     }
 
     // for testing

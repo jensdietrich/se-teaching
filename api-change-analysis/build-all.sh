@@ -14,3 +14,7 @@ cd ..
 cd change1
 mvn clean package
 cd ..
+
+cd change2
+mvn clean package
+cd ..
