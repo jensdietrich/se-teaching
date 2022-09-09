@@ -4,7 +4,7 @@ This project illustrates several types of breaking changes made to an upstream A
 
 Then there are several `/change*` projects which define alternative versions `1.1.0` of the service defined in `/baseline`, making sometimes subtle changes.  
 
-There are some sh scripts illustrating the issues caused by various changes. Before running those scripts, run `build-all.sh` to build all projects and produce the respective components. There are no matching bat scripts for windows, but most commands in the sh script can be directly executed in a windows terminal. 
+There are some sh scripts illustrating the issues caused by various changes. Before running those scripts, run `build-all.sh` to build all projects and produce the respective components. This [this discussion](https://stackoverflow.com/questions/26522789/how-to-run-sh-on-windows-command-prompt) for how to run those scripts on Windows. 
 
 
 `run-with-change*.sh` runs the client with the respective updated service `easycrud-1.1.0`, without recompiling it first. For changes that break binary compatibility, this will result in an error (some subtype of [LinkageError](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/LinkageError.html)).
