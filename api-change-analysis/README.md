@@ -7,7 +7,9 @@ Then there are several `/change*` projects which define alternative versions `1.
 There are some sh scripts illustrating the issues caused by various changes. Before running those scripts, run `build-all.sh` to build all projects and produce the respective components. This [this discussion](https://stackoverflow.com/questions/26522789/how-to-run-sh-on-windows-command-prompt) for how to run those scripts on Windows. 
 
 
-`run-with-change*.sh` runs the client with the respective updated service `easycrud-1.1.0`, without recompiling it first. For changes that break binary compatibility, this will result in an error (some subtype of [LinkageError](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/LinkageError.html)).
+`run-with-change*.sh` runs the client with the respective updated service `easycrud-1.1.0`, without recompiling it first. For changes that break binary compatibility, this will result in an error (some subtype of [LinkageError](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/LinkageError.html)). This demonstrates _binary compatibility_.
+
+`compile-with-change*.sh` recompiled the client with the respective updated service `easycrud-1.1.0`. This demonstrates _source compatibility_.
 
 `check-change*.sh` runs an [revapi](https://revapi.org/revapi-site/main/index.html) analysis in order to diff `easycrud-1.0.0.jar` and the respective `easycrud-1.1.0.jar`, and report any incompatible changes that may break clients.
 
