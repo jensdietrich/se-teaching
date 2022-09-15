@@ -47,6 +47,7 @@
             </manifest>
             <manifestEntries>
               <Premain-Class>nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteAgent</Premain-Class>
+              <Agent-Class>nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteAgent</Agent-Class>
               <Can-Redefine-Classes>true</Can-Redefine-Classes>
               <Can-Retransform-Classes>true</Can-Retransform-Classes>
             </manifestEntries>

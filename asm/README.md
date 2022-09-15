@@ -26,6 +26,9 @@ There are no unit tests. Unit testing agents can be tricky as the JVM needs to b
 
 ## Deploying and Using the Agent
 
+
+### Static Deployment
+
 An agent jar can be built with `mvn package` (note that this includes some redundant classes from other packages not actually needed). This is achieved by using the *maven assembly plugin* configured in `pom.xml`. In particular, the manifest of this jar contains the agent class set as *Premain-Class*.
 
 The application also contains a very simple application `nz.ac.vuw.jenz.asm.example.App` that accesses a field. After building the project, run the following command:
@@ -55,5 +58,17 @@ field access recorded: nz.ac.vuw.jenz.asm.example.App::field
 terminating app: class nz.ac.vuw.jenz.asm.example.App
 
 ```
+
+### Dynamic Deployment
+
+The class `nz.ac.vuw.jenz.asm.example.RunAppAndAttachAgent` is a wrapper that dynamically attaches the agent to the running JVM and then starts `App` . 
+
+To use this, the following two requirements must be met:
+
+1. the agent jar must exist, i.e. this project must have been build with `mvn package` (this is the same as for static deployment)
+2. the JVM must have been started with the option `-Djdk.attach.allowAttachSelf=true`
+
+
+### Reflection
 
 While the static analysis (example 2 described before) does also report the method where the field write takes place, the dynamic analsis can do more -- it can report the stack trace, i.e. the invocation chain of methods leading to field access. This  provides more analysis context. Note that the top stackframes are created by the instrumentation, in a real-world application, those would be removed (i.e. the stacktrace would be sanitised).
