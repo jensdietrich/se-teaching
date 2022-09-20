@@ -20,8 +20,6 @@ public class UploadBulkData extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-
         try (ObjectInputStream in = new ObjectInputStream(request.getInputStream())) {
             Object uploaded = in.readObject();
             if (uploaded instanceof List) {
@@ -31,9 +29,5 @@ public class UploadBulkData extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-
     }
-
-
 }

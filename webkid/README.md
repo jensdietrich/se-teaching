@@ -7,7 +7,7 @@ This is a deliberately unsecure web application, used to demonstrate static secu
 ## Running a local security analysis with codeql
 
 1. make sure `codeql` is installed and in the path
-2. build the database for this project -- run `codeql database create codeql_db -l java -c 'mvn clean compile'
+2. build the database for this project -- run `codeql database create codeql_db -l java -c 'mvn clean compile'`
 3. run standard queries for Java -- run `codeql database analyze --format=csv --output=results.csv codeql_db codeql/java-queries`
 4. inspect `results.csv`
 
