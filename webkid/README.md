@@ -1,5 +1,9 @@
 This is a deliberately unsecure web application, used to demonstrate static security analysis. It is a simplified version of [WebGoat](https://owasp.org/www-project-webgoat/) , therefore the name.
 
+
+![image](webkid.jpeg)
+
+
 ## Running a local security analysis with codeql
 
 1. make sure `codeql` is installed and in the path
