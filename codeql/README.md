@@ -25,7 +25,7 @@ The `--additional-packs` features looks unnecessary, but seems to be required. R
 
 ## Editing Queries
 
-Any text editor can be used. The [online query console](https://lgtm.com/) offers autocompletion.
+Any text editor can be used. The [online query console](https://lgtm.com/query) offers autocompletion.
 
 ## Exporting Query Results to Files
 
