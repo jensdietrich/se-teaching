@@ -15,6 +15,15 @@ There are unit tests that illustrates how this works.
 
 Note that the analysis also detects field writes in the special methods `<init>` and `<clinit>`, representing object and class initialisation, respectively. 
 
+## Static Analysis Example 3 - Finding Callsites
+
+The third analysis detects callsites, it is implemented in `nz.ac.vuw.jenz.asm.staticanalysis3.FindCallsites` and uses a visitor in the same package. The visitor is again *nested*, i.e. `visitMethod` returns another visitor to analyse the body of the method being visited.
+
+There are unit tests that illustrates how this works.
+
+Note that the analysis also detects callsites to the super constructor of (the implicit) constructor `Foo()` (in the test).
+
+
 ## Dynamic Analysis and Byte Code Manipulation with an ASM-Based Agent
 
 
