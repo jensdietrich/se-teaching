@@ -10,16 +10,11 @@ import java.net.URL;
 import java.util.Collection;
 
 /**
- * Visualises the AST. From  https://stackoverflow.com/questions/49413911/antlr4-parse-tree-to-dot-using-dotgenerator .
- * Creates a dot file that can then be transformed into svg, png , .. using with graphvis, for instance:
- * dot -Tpng:cairo ast.dot -o ast.png
- * dot -Tsvg ast.dot -o ast.svg
- * The antlr tools (such as the intellij plugin can also visualise the AST but were unstable at the time of writing this.
+ * Queries the parse tree / AST with XPath.
  * @author jens dietrich
  */
 public class QueryParseTreeWithXPath {
     public static void main(String[] args) throws Exception {
-
         evaluateQuery("/input.json","//key");
         evaluateQuery("/input.json","//pair/value");
     }
@@ -31,6 +26,10 @@ public class QueryParseTreeWithXPath {
         JSONParser parser = new JSONParser(tokens);
         XPath p = new XPath(parser, query);
         Collection<ParseTree> results = p.evaluate(parser.json());
+
+        if (results.isEmpty()) {
+            System.out.println("no results found for query " + query);
+        }
 
         int count = 0;
         for (ParseTree solution:results) {
