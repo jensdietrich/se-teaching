@@ -16,7 +16,7 @@ public class Activator implements BundleActivator  {
 	public void start(BundleContext bc) throws Exception {
 		Activator.bc = bc;		
 		DateFormatter service = new LongDateFormatter();
-		registration = bc.registerService(LongDateFormatter.class.getName(),service,new Hashtable());
+		registration = bc.registerService(DateFormatter.class.getName(),service,new Hashtable());
 		System.out.println("Service registered: " + service);
 
 	}
