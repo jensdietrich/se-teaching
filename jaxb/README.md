@@ -1,4 +1,4 @@
-##README
+## README
 
 A simple scenario showing how a database access layer can be generated from a database schema. In this case, the schema is an XML schema  in 
 `main/resources/email.xsd`. The generated code can be found in `target/generated-sources` after running `mvn compile`. 
