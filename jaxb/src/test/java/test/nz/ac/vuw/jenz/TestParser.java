@@ -23,7 +23,7 @@ public class TestParser {
 		Email mail = (Email) parser.unmarshal(file);
 		
 		assertEquals(1,mail.getTo().size());
-		Participant to = mail.getTo().get(0);
+			Participant to = mail.getTo().get(0);
 		assertEquals("jenz@vuw.ac.nz",to.getEmailAddress());
 		assertEquals("Jens Dietrich",to.getDisplayName());
 		

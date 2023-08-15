@@ -35,8 +35,7 @@ public class TestWhetherDoesGoogleKnowsTheAnswer {
         String content = EntityUtils.toString(response.getEntity());
 
         // check whether the web page contains the expected answer
-        assertTrue(content
-                .indexOf("42") > -1);
+        assertTrue(content.contains("42"));
     }
 
 }

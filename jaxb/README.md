@@ -7,6 +7,6 @@ Note that there is no other source code in this program, only some tests to illu
 
 XSD is used via a Maven plugin (see `pom.xml` for details), the underlying JAXB compiler is a binary `xjc` in the Java distribution (version 8). If code generation fails, check whether this binary is in the PATH.
  
-In Java 9 JaxB was flagged as depricated and finally removed in Java 11. This example requires Java 8 (can be verified by running `java -version` and `javac -version`).
+In Java 9 JaxB was flagged as deprecated and finally removed in Java 11. This example requires Java 8 (can be verified by running `java -version` and `javac -version`).
 See this post [https://stackoverflow.com/questions/52502189/java-11-package-javax-xml-bind-does-not-exist] for a discussion on how to run this with newer versions of Java.
  

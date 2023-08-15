@@ -14,7 +14,8 @@ import java.security.ProtectionDomain;
  */
 public class LogFieldWriteAgent {
 
-    public static final String INCLUDES = "nz/ac/";
+    // public static final String INCLUDES = "nz/ac/"; use this to restrict instrumentation to project classes
+    public static final String INCLUDES = "";
 
     // agentmain needed for testing
     public static void agentmain(String agentArgs, Instrumentation inst) {
