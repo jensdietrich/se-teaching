@@ -21,7 +21,5 @@ or for new objects in the queue to be picked up for processing (for consumers).
 
 The custom mbean used in this example allows us to see what is going on in the queue. When using
 VisualVM, this requires the installation of the mbeans plugin. Then we can inspect the mbean `nz.ac.vuw.jenz.mbean::queue`
-with the `size` property to see how many objects are in the queue. 
-
-If this number is constantly `Main::queueMaxSize`, then we have too many producers. If it is constantly
+with the `size` property to see how many objects are in the queue.  If this number is constantly `Main::queueMaxSize`, then we have too many producers. If it is constantly
 `0`, we have too many consumers. 

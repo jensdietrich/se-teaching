@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 // alternative, annotation-based configuration, see README for discussion
-// @WebFilter(filterName = "ProfiningFilter", urlPatterns = "/*")
+// @WebFilter(filterName = "ProfilingFilter", urlPatterns = "/*")
 public class ProfilingFilter implements Filter {
 
     private FilterConfig filterConfig = null;
