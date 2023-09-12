@@ -21,7 +21,7 @@ public class AddOrder {
             newOrder.setAmount(5);
             newOrder.setPrice(12.00);
             if (addOrder(newOrder)) {
-                System.out.println("Order succesfully added !");
+                System.out.println("Order successfully added !");
             }
         }
         catch (Exception x) {
