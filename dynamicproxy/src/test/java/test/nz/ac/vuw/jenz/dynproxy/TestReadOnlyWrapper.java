@@ -1,13 +1,13 @@
 package test.nz.ac.vuw.jenz.dynproxy;
 
 import nz.ac.vuw.jenz.dynproxy.ReadOnlyWrapper;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Collection;
-import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Some tests to illustrate the functionality of the ReadOnlyWrapper.
@@ -18,14 +18,14 @@ public class TestReadOnlyWrapper {
     private Collection<String> collection = null;
     private Collection<String> readOnlyView = null;
 
-    @Before
-    public void setup() throws Exception {
+    @BeforeEach
+    public void setup() {
         collection = new ArrayList<String>();
         collection.add("one");
         readOnlyView = ReadOnlyWrapper.unmodifiableCollection(collection);
     }
-    @After
-    public void tearDown() throws Exception {
+    @AfterEach
+    public void tearDown() {
         collection = new ArrayList<String>();
     }
 
@@ -34,8 +34,8 @@ public class TestReadOnlyWrapper {
         assertEquals(1,readOnlyView.size());
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void testWriteMethod() {
-        assertTrue(readOnlyView.add("foo"));
+        assertThrows(UnsupportedOperationException.class, () -> readOnlyView.add("foo"));
     }
 }
