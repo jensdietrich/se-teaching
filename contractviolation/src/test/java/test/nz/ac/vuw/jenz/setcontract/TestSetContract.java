@@ -19,7 +19,7 @@ public class TestSetContract {
     public void testHashSet() {
         map = new HashMap<>();
         String key1 = "go";
-        String key2 = new String("go");
+        String key2 = new String("go"); // do not use literals, as this will result in  key1 and key2 being the same as constant pool is used
         Assume.assumeTrue(key1!=key2);
         map.put(key1,"gehen");
         Assume.assumeTrue(Objects.equals(key1,key2));
@@ -30,7 +30,7 @@ public class TestSetContract {
     public void testIdentityHashSet() {
         map = new IdentityHashMap<>();
         String key1 = "go";
-        String key2 = new String("go");
+        String key2 = new String("go");  // do not use literals, as this will result in  key1 and key2 being the same as constant pool is used
         Assume.assumeTrue(key1!=key2);
         Assume.assumeTrue(Objects.equals(key1,key2));
         map.put(key1,"gehen");
