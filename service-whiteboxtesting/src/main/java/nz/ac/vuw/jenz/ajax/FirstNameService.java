@@ -1,7 +1,7 @@
 package nz.ac.vuw.jenz.ajax;
 
 import java.io.*;
-import javax.servlet.http.*;
+import jakarta.servlet.http.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
