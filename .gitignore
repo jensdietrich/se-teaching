@@ -57,3 +57,4 @@ javaparser-api/target
 asm/target
 api-change-analysis/revapi-0.11.6/cache
 webkid/codeql_db
+service-whiteboxtesting-old/target

@@ -1,7 +1,6 @@
 package nz.ac.vuw.jenz.mbean;
 
 import org.apache.commons.lang3.RandomStringUtils;
-
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
@@ -9,7 +8,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * Main class.
+ * Start the application. Note that the application will run forever, kill the process (in an IDE: push stop)
+ * to stop it. The idea is to connect a JMX client like VisualVM to the application while it is running.
  * @author jens dietrich
  */
 public class Main {

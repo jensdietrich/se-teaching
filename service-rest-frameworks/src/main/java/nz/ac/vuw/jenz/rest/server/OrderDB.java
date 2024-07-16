@@ -17,8 +17,8 @@ import static javax.servlet.http.HttpServletResponse.*; // for status codes
  */
 public class OrderDB implements CrudHandler {
 
+    // simulate a database
     public static Map<String, Order> ORDERS = new ConcurrentHashMap<>();
-
     static {
         Order order1 = new Order();
         order1.setId("42");

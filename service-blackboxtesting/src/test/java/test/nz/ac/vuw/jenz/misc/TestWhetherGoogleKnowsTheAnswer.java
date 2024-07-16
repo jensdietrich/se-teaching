@@ -19,6 +19,7 @@ public class TestWhetherGoogleKnowsTheAnswer {
 
     @Test
     public void test() throws Exception {
+
         // using a builder is much easier than manually encoding the URL with escaping white spaces in the query etc
         // would be something like:
         // https://www.google.com/search?q=the+answer+to+life+the+universe+and+everything&oq=the+answer+to+life+the+universe+and+everything
