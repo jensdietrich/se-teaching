@@ -1,18 +1,11 @@
 package nz.ac.vuw.jenz.csv;
 
-import nz.ac.vuw.jenz.antr.util.Dot2Png;
-import nz.ac.vuw.jenz.antr.util.DotOptions;
-import nz.ac.vuw.jenz.antr.util.DotTreeRepresentation;
-import nz.ac.vuw.jenz.antr.util.SimpleTree;
+
 import nz.ac.vuw.jenz.csv.parser.CSVLexer;
 import nz.ac.vuw.jenz.csv.parser.CSVParser;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.net.URL;
 
 /**

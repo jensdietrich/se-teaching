@@ -5,7 +5,6 @@ import nz.ac.vuw.jenz.csv.parser.CSVLexer;
 import nz.ac.vuw.jenz.csv.parser.CSVParser;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
