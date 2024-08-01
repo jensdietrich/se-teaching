@@ -7,7 +7,7 @@ PMD has a large set of on-board analyses (rules), those analyses can be defined 
 
 ## Project Setup and Tests
 
-The additional rules defined are declared in a rule set in `src/main/resources/category/vuw/pmd.xml`.  For each rule, there are matching tests. PMD has its own rather peculiar  testing framework. The test classes in `src/test/java/nz/ac/vuw/jenz/pmd/` dont do much, the actual testing logic is defined in xml files located in `src/test/resources/nz/ac/vuw/jenz/pmd/xml/`. 
+The additional rules defined are declared in a rule set in `src/main/resources/category/vuw/pmd.xml`.  For each rule, there are matching tests. PMD has its own rather peculiar  testing framework. The test classes in `src/test/java/nz/ac/vuw/jenz/pmd/` don't do much, the actual testing logic is defined in xml files located in `src/test/resources/nz/ac/vuw/jenz/pmd/xml/`. 
 
 ## HelloWorld check implemented in Java
 

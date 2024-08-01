@@ -16,7 +16,7 @@ import java.util.Collection;
 public class QueryParseTreeWithXPath {
     public static void main(String[] args) throws Exception {
         evaluateQuery("/input.json","//key");
-        evaluateQuery("/input.json","//pair/value");
+//        evaluateQuery("/input.json","//pair/value");
     }
 
     public static void evaluateQuery(String inputLocation,String query) throws Exception {
