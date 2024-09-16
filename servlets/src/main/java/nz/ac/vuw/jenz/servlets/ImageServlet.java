@@ -1,9 +1,8 @@
 package nz.ac.vuw.jenz.servlets;
 
 import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Date;

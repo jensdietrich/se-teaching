@@ -1,9 +1,8 @@
 package nz.ac.vuw.jenz.servlets;
 
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
 import java.util.*;
 
 /**
@@ -50,6 +49,7 @@ public class FormAnalyzerServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
         processForm(request, response);
     }
 

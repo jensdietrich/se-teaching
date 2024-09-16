@@ -1,9 +1,8 @@
 package nz.ac.vuw.jenz.servlets.modular;
 
 import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 
 /**
  * Footer - to be included by the main servlet.

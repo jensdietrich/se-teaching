@@ -1,7 +1,8 @@
 package nz.ac.vuw.jenz.servlets;
 
 import java.io.*;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 
 /**
  * Simple servlet displaying the server date and time.
