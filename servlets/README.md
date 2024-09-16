@@ -6,7 +6,7 @@ instance by dropping it into **Tomcat**'s `webapps` folder.  Then start tomcat (
 To ***debug*** the application, its is recommended to install a jetty plugin for the IDE you are using, e.g.:
 
 1. IntelliJ -- install IDEA Jetty Runner from Preferences > Plugins
-2. Eclipse -- install the Jetty feature following these [https://eclipse-jetty.github.io/installation.html](instructions)
+2. Eclipse -- install the Jetty feature following these [instructions](https://eclipse-jetty.github.io/installation.html)
 3. Netbeans -- has excellent built-in Tomcat and/or Glassfish integration, these servers can be used for debugging
 4. professional / enterprise editions of IDEs may have built-in support to debug web applications without the need for further plugins
 
