@@ -15,4 +15,7 @@ Note that servlets are configured (mainly: associated with URLs) using `web.xml`
 jetty mvn plugin used has problems correctly consolidating configurations from various sources. In many cases, the servlet and filter
 source code still has the annotations corresponding to the `web.xml` entries, but commented out.
 
+## A Note on Java and JEE Versions Used
 
+The current version is based on Java 17+ and the JEE API provided by jakarta (`jakarta.servlet` packages).
+For a version based in the older `javax.servlet` packages using Java 1.8, checkout the tag `jee-by-javax`.
