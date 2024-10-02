@@ -6,5 +6,5 @@ The examples in this test (a tax and a leap year calculator) have tests that hav
 
 Test coverage addresses this by mutating the program, for instance, by replacing `+` by `-` in arithmetic expressions. This should break the test. However, if the tests have meaningless assertions, they survive these modifications. 
 
-The framework used here is [https://pitest.org/](https://pitest.org/), installed as a Maven plugin. To use it, run `mvn org.pitest:pitest-maven:mutationCoverage`. The mutation coverage reports are generated in `target/pitreports`.
+The framework used here is [https://pitest.org/](https://pitest.org/), installed as a Maven plugin. To use it, run `mvn test org.pitest:pitest-maven:mutationCoverage`. The mutation coverage reports are generated in `target/pitreports`.
 
