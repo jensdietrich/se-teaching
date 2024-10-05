@@ -8,7 +8,7 @@ It also contains a utility to convert graph into [mermaid](https://mermaid.js.or
 
 ## Example
 
-For full class def see `src/test/java/nz/ac/vuw/jenz/asm/cfg/testdata/Foo1.java`.
+For complete source code see `src/test/java/nz/ac/vuw/jenz/asm/cfg/testdata/Foo1.java`.
 Also see `nz.ac.vuw.jenz.asm.cfg.BuildControlFlowGraphTests` for how to extract the CFG for 
 this class.
 
@@ -34,7 +34,8 @@ String foo(int i,boolean b) {
 
 ### Byte Code 
 
-Extracted with compiled class with `javap -c`. 
+Extracted with compiled class with `javap -c`.  Empty lines have been manualluy inserted
+to show basic blocks (cfg nodes).
 ```
   java.lang.String foo(int, boolean);
     Code:
@@ -42,25 +43,30 @@ Extracted with compiled class with `javap -c`.
        2: astore_3
        3: iload_1
        4: ifle          31
+       
        7: iload_2
        8: ifeq          21
+       
       11: aload_3
       12: invokedynamic #9,  0              // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
       17: astore_3
       18: goto          38
+      
       21: aload_3
       22: invokedynamic #13,  0             // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
       27: astore_3
       28: goto          38
+      
       31: aload_3
       32: invokedynamic #14,  0             // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
       37: astore_3
+      
       38: aload_3
       39: areturn
 
 ```
 
-### Mermaid Visualisation of the CFG
+### Mermaid Visualisation of the Extacted CFG
 
 ```mermaid
 graph TD;
