@@ -14,3 +14,7 @@ Note that test generation is often non-deterministic, i.e. repeating generation 
 
 
 [Evosuite](https://github.com/EvoSuite/) has a similar feature, however, it seems to have been [disabled in recent versions](https://github.com/EvoSuite/evosuite/issues/353).
+
+### References
+
+1. Pacheco, Carlos, and Michael D. Ernst. "Randoop: feedback-directed random testing for Java." OOPSLA'07.
