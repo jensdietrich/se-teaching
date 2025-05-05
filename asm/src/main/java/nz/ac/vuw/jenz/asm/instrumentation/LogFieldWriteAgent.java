@@ -24,6 +24,7 @@ public class LogFieldWriteAgent {
     }
     public static void premain(String agentArgs, Instrumentation inst) {
 
+        System.out.println("premain called");
         inst.addTransformer(new ClassFileTransformer() {
             @Override
             public byte[] transform(ClassLoader classLoader, String s, Class<?> aClass, ProtectionDomain protectionDomain, byte[] bytes) throws IllegalClassFormatException {
@@ -44,6 +45,5 @@ public class LogFieldWriteAgent {
             }
         });
     }
-
 
 }

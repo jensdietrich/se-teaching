@@ -23,6 +23,12 @@
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.8.8</version>
+        <configuration>
+            <formats>
+                <!-- other possible formats are XML and CSV -->
+                XML
+            </formats>
+        </configuration>
         <executions>
             <execution>
                 <goals>

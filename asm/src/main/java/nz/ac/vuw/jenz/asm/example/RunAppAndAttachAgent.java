@@ -1,6 +1,7 @@
 package nz.ac.vuw.jenz.asm.example;
 
 import com.sun.tools.attach.*;
+import nz.ac.vuw.jenz.asm.instrumentation.LogFieldWriteVisitor;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +21,6 @@ public class RunAppAndAttachAgent {
         final RuntimeMXBean runtime = ManagementFactory.getRuntimeMXBean();
         final long pid = runtime.getPid();
         VirtualMachine self = null;
-
         try {
             self = VirtualMachine.attach(""+pid);
         } catch (AttachNotSupportedException e) {

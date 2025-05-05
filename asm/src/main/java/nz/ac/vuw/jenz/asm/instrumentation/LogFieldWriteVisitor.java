@@ -63,9 +63,15 @@ public class LogFieldWriteVisitor extends ClassVisitor {
         String fieldInfo = clazz.replace('/','.') + "::" + name + System.lineSeparator() ;
 
         // add stacktrace to provide some context that is not available when doing a static analysis
-        String stacktraceAsString = Stream.of(Thread.currentThread().getStackTrace())
-            .map(stacktraceElement -> "\t > " + stacktraceElement.toString())
-            .collect(Collectors.joining(System.lineSeparator()));
+        String stacktraceAsString = "";
+//        try {
+//            Stream.of(Thread.currentThread().getStackTrace())
+//                .map(stacktraceElement -> "\t > " + stacktraceElement.toString())
+//                .collect(Collectors.joining(System.lineSeparator()));
+//        }
+//        catch (Throwable t) {
+//            stacktraceAsString = " (stacktrace unavailable)";
+//        }
         AnalysisMemDB.add(fieldInfo + stacktraceAsString);
     }
 
