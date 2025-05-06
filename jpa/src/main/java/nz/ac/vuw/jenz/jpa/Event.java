@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Simple domain class with some ORM annotations.
+ * @author jens dietrich
+ */
 @Entity
 @Table(name = "Events")
 public class Event {
@@ -22,6 +26,14 @@ public class Event {
     private Long id;
 
     private String title;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 
     @Override
     public String toString() {
