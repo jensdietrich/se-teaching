@@ -64,11 +64,14 @@ public class DB {
     public Event fetchEventById(long id) {
         System.out.println("fetching event with id=" + id + " from DB");
         return inTransaction(
-            persistenceManager -> {
-                Event event = persistenceManager.find(Event.class,id);
-                assert persistenceManager.contains(event);
-                return event;
-            }
+            persistenceManager -> persistenceManager.find(Event.class,id)
+        );
+    }
+
+    public Event fetchEventByIdLazy(long id) {
+        System.out.println("fetching event with id=" + id + " from DB");
+        return inTransaction(
+            persistenceManager -> persistenceManager.getReference(Event.class,id)
         );
     }
 

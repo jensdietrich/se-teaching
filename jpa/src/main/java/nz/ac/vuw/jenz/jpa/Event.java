@@ -32,6 +32,12 @@ public class Event {
         return id;
     }
 
+    // not required and should be avoided as ids are generated and strictly read-only
+    // used here to test what happens if this is ignored
+    void setId(Long id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
