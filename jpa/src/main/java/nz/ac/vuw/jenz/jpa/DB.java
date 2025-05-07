@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class DB {
 
     private static final String PERSISTENCE_UNIT_NAME = "nz.ac.vuw.jenz.jpa";
-    private static EntityManagerFactory EntityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);;
+    private static EntityManagerFactory EntityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
     // uncommon operation to reset ORM, used in text fixtures
     void reset() throws IOException {
@@ -64,7 +64,11 @@ public class DB {
     public Event fetchEventById(long id) {
         System.out.println("fetching event with id=" + id + " from DB");
         return inTransaction(
-            persistenceManager -> persistenceManager.find(Event.class,id)
+            persistenceManager -> {
+                Event event = persistenceManager.find(Event.class,id);
+                assert persistenceManager.contains(event);
+                return event;
+            }
         );
     }
 
@@ -89,11 +93,33 @@ public class DB {
         });
     }
 
+    public boolean insertEvents(Event... events) {
+        List eventList = List.of(events);
+        return insertEvents(eventList);
+    }
+
     // delete one event from the database
     public boolean deleteEvent(Event event) {
         System.out.println("deleting event " + event);
         return inTransaction(persistenceManager -> {
-            if (persistenceManager.find(Event.class,event)==null) {
+            Event event2 = persistenceManager.find(Event.class,event.getId());
+            if (event2==null) {
+                System.out.println("event not in DB: " + event);
+                return false;
+            }
+            else {
+                persistenceManager.remove(event2);
+                return true;
+            }
+        });
+    }
+
+    // delete one event from the database by if
+    public boolean deleteEvent(long id) {
+        System.out.println("deleting event " + id);
+        return inTransaction(persistenceManager -> {
+            Event event = persistenceManager.find(Event.class,id);
+            if (event==null) {
                 System.out.println("event not in DB: " + event);
                 return false;
             }
