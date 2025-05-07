@@ -22,6 +22,8 @@
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.highlight_sql" value="true" />
+
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
         </properties>
 
     </persistence-unit>

@@ -1,11 +1,12 @@
 package nz.ac.vuw.jenz.jpa;
 
+import org.hibernate.Hibernate;
+import org.hibernate.proxy.HibernateProxy;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.List;
 import jakarta.persistence.EntityExistsException;
 import static org.junit.jupiter.api.Assertions.*;
@@ -103,7 +104,7 @@ public class DBTests {
         }
 
         @Test
-        public void testReferentialIntegrity() {
+        public void testPrimaryKeyConstraint() {
             Event event1 = new Event("my first event");
             db.insertEvent(event1);
 
@@ -120,28 +121,21 @@ public class DBTests {
 
 
         @Test
-        public void testCreateOneFetchOneLazy() throws Exception {
+        public void testLazyLoading() throws Exception {
             Event event = new Event("my first event");
             db.insertEvent(event);
             Event readEvent = db.fetchEventByIdLazy(event.getId());
             assertNotNull(readEvent);
 
             // now field are not initialised, they will only be read from db if getters are invoked
-//            assertNull(readField(readEvent, "title"));
-//            assertNull(readField(readEvent, "id"));
+            // the event is not a "real event" but a proxy
+            assertTrue(readEvent instanceof HibernateProxy);
 
-            readEvent.getId();
-            readEvent.getTitle();
-
-//            // since lazy field resolution requires a database connection, those operations have to be run in a transaction context
-//            db.inTransaction(persistenceManager -> {
-//                assertEquals(event.getId(), readEvent.getId());
-//                assertEquals(event.getTitle(), readEvent.getTitle());
-//                return true;
-//            });
+            // since lazy field resolution requires a database connection, those operations have to be run in a transaction context
+            // in the persistency settings, we set this up such that no transactions are required for lazy loading
+            // see hibernate.enable_lazy_load_no_trans in src/main/resources/META-INF/persistence.xml
+            assertEquals("my first event", readEvent.getTitle());
 
         }
-
     }
-
 }
