@@ -77,6 +77,11 @@ public class DBTests {
 
     @Nested
     class Advanced {
+
+        // use this indirection to avoid compiler refusing to compile unreachable code
+        private void blowUp() {
+            throw new RuntimeException();
+        }
         @Test
         public void testRollback() throws Exception {
 
@@ -85,16 +90,11 @@ public class DBTests {
             try {
                 db.inTransaction(persistenceManager -> {
                     persistenceManager.persist(event1);
-
-                    // inject fault
-                    if (System.currentTimeMillis() > 0) { // fake condition always true to make next persit op reachable
-                        throw new RuntimeException(); // the actual fault
-                    }
+                    blowUp(); // inject fault !
                     persistenceManager.persist(event2);
                     return true;
                 });
-            } catch (Exception e) {
-            }   // just carry on
+            } catch (Exception e) {}
 
             // check whether event1 is still in the database
             // it should have been removed during transaction rollback
