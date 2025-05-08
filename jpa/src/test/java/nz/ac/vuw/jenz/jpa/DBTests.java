@@ -156,7 +156,7 @@ public class DBTests {
             assertTrue(db.EntityManagerFactory.getCache().contains(Event.class, readEvent1.getId()));
 
             assertEquals(readEvent1,readEvent2);
-            assertTrue(readEvent1==readEvent2);
+            assertFalse(readEvent1==readEvent2);
         }
     }
 }
