@@ -5,10 +5,32 @@
 
     <persistence-unit name="nz.ac.vuw.jenz.jpa">
         <description>
-            teaching example
+            example 1 -- single domain class
         </description>
         <class>nz.ac.vuw.jenz.jpa.Event</class>
+        <properties>
+            <!-- db connection settings -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:~/.mydb;DB_CLOSE_DELAY=-1" />
+            <property name="jakarta.persistence.jdbc.user" value="sa" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
 
+            <!-- automatically export the schema -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="create" />
+
+            <!-- echo SQL to console -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.highlight_sql" value="true" />
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="nz.ac.vuw.jenz.jpa2">
+        <description>
+            example 2 -- two domain classes with 1:many relationship
+        </description>
+        <class>nz.ac.vuw.jenz.jpa2.Person</class>
+        <class>nz.ac.vuw.jenz.jpa2.Address</class>
         <properties>
             <!-- db connection settings -->
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:~/.mydb;DB_CLOSE_DELAY=-1" />
@@ -25,7 +47,6 @@
 
             <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
         </properties>
-
     </persistence-unit>
 
 </persistence>

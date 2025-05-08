@@ -21,10 +21,7 @@ public class Event {
         this.title = title;
     }
 
-    @Id
-    @GeneratedValue
-    // @Column(name = "eventDate")   // optional
-    private Long id;
+    @Id @GeneratedValue private Long id; // primary key
 
     private String title;
 

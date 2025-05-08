@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class DB {
 
     private static final String PERSISTENCE_UNIT_NAME = "nz.ac.vuw.jenz.jpa";
-    private static EntityManagerFactory EntityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    static EntityManagerFactory EntityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
     // uncommon operation to reset ORM, used in text fixtures
     void reset() throws IOException {
@@ -117,7 +117,7 @@ public class DB {
         });
     }
 
-    // delete one event from the database by if
+    // delete one event from the database by id
     public boolean deleteEvent(long id) {
         System.out.println("deleting event " + id);
         return inTransaction(persistenceManager -> {

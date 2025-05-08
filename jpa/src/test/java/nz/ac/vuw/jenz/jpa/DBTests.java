@@ -1,6 +1,5 @@
 package nz.ac.vuw.jenz.jpa;
 
-import org.hibernate.Hibernate;
 import org.hibernate.proxy.HibernateProxy;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +10,10 @@ import java.util.List;
 import jakarta.persistence.EntityExistsException;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the flat domain model containing only the class Enity.
+ * @author jens dietrich
+ */
 public class DBTests {
 
     private static DB db = new DB();
@@ -135,7 +138,25 @@ public class DBTests {
             // in the persistency settings, we set this up such that no transactions are required for lazy loading
             // see hibernate.enable_lazy_load_no_trans in src/main/resources/META-INF/persistence.xml
             assertEquals("my first event", readEvent.getTitle());
+        }
 
+        @Test
+        public void testObjectIdentity() {
+            Event event = new Event("my first event");
+            db.insertEvent(event);
+
+            // this uses different object managers - so unless caching is setup, the objects returned are different
+            // see also https://en.wikibooks.org/wiki/Java_Persistence/Caching#Example_JPA_2.0_Cacheable_annotation
+            Event readEvent1 = db.fetchEventById(event.getId());
+            Event readEvent2 = db.fetchEventById(event.getId());
+
+            assertTrue(DB.EntityManagerFactory.getCache().contains(Event.class,readEvent1.getId()));
+            assertTrue(DB.EntityManagerFactory.getCache().contains(Event.class,readEvent2.getId()));
+
+            assertTrue(db.EntityManagerFactory.getCache().contains(Event.class, readEvent1.getId()));
+
+            assertEquals(readEvent1,readEvent2);
+            assertTrue(readEvent1==readEvent2);
         }
     }
 }
