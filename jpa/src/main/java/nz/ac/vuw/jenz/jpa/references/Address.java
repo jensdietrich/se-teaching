@@ -1,4 +1,4 @@
-package nz.ac.vuw.jenz.jpa2;
+package nz.ac.vuw.jenz.jpa.references;
 
 import jakarta.persistence.*;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package nz.ac.vuw.jenz.jpa2;
+package nz.ac.vuw.jenz.jpa.references;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -57,6 +57,14 @@ public class DB {
         System.out.println("fetching person with \"" + txt + "\" in the title from DB");
         return inTransaction(
             persistenceManager -> persistenceManager.createQuery("from Person where lastName like \'%" + txt +"%\'", Person.class).getResultList()
+        );
+    }
+
+    // fetch one person from the database by id
+    public Address fetchAddressById(long id) {
+        System.out.println("fetching address with id=" + id + " from DB");
+        return inTransaction(
+            persistenceManager -> persistenceManager.find(Address.class,id)
         );
     }
 

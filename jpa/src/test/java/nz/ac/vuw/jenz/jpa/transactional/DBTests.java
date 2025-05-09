@@ -1,4 +1,4 @@
-package nz.ac.vuw.jenz.jpa;
+package nz.ac.vuw.jenz.jpa.transactional;
 
 import org.hibernate.proxy.HibernateProxy;
 import org.junit.jupiter.api.BeforeAll;

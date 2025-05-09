@@ -7,7 +7,7 @@
         <description>
             example 1 -- single domain class
         </description>
-        <class>nz.ac.vuw.jenz.jpa.Event</class>
+        <class>nz.ac.vuw.jenz.jpa.transactional.Event</class>
         <properties>
             <!-- db connection settings -->
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:~/.mydb;DB_CLOSE_DELAY=-1" />
@@ -29,8 +29,8 @@
         <description>
             example 2 -- two domain classes with 1:many relationship
         </description>
-        <class>nz.ac.vuw.jenz.jpa2.Person</class>
-        <class>nz.ac.vuw.jenz.jpa2.Address</class>
+        <class>nz.ac.vuw.jenz.jpa.references.Person</class>
+        <class>nz.ac.vuw.jenz.jpa.references.Address</class>
         <properties>
             <!-- db connection settings -->
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:~/.mydb;DB_CLOSE_DELAY=-1" />

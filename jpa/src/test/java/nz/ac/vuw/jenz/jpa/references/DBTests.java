@@ -1,14 +1,9 @@
-package nz.ac.vuw.jenz.jpa2;
+package nz.ac.vuw.jenz.jpa.references;
 
-import jakarta.persistence.EntityExistsException;
-import jakarta.persistence.ManyToOne;
-import org.hibernate.proxy.HibernateProxy;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,6 +47,8 @@ public class DBTests {
         person.setAddress(address);
         db.insertPerson(person);
 
+        long addressId = address.getId();
+
         Person readPerson = db.fetchPersonById(person.getId());
         assertNotNull(readPerson);
         assertEquals(person.getId(), readPerson.getId());
@@ -64,7 +61,10 @@ public class DBTests {
 
         // confirm that the Address is actually persistent now as we did not explicitly insert this
         // it was inserted through a cascading insert (see annotation in Person)
-        
+        // this is different from the insert
+        Address readAddress = db.fetchAddressById(addressId);
+        assertNotNull(readAddress);
+
     }
 
     @Test
@@ -92,6 +92,7 @@ public class DBTests {
         Address readAddress2 = readPerson2.getAddress();
 
         assertEquals(readAddress1,readAddress2);
+        // but they might not be the same object !
 
     }
 
@@ -117,7 +118,7 @@ public class DBTests {
         // the address is not gone as this is not a cascading delete
         // the address might be referenced by other Person instances
         // this is different from the insert
-        Address readAddress = db.fetchPersonById(addressId).getAddress();
+        Address readAddress = db.fetchAddressById(addressId);
         assertNull(readAddress);
 
     }

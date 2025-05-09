@@ -1,4 +1,4 @@
-package nz.ac.vuw.jenz.jpa;
+package nz.ac.vuw.jenz.jpa.transactional;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

@@ -1,4 +1,4 @@
-package nz.ac.vuw.jenz.jpa;
+package nz.ac.vuw.jenz.jpa.transactional;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
