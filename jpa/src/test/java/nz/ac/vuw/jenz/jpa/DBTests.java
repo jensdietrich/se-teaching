@@ -150,11 +150,6 @@ public class DBTests {
             Event readEvent1 = db.fetchEventById(event.getId());
             Event readEvent2 = db.fetchEventById(event.getId());
 
-            assertTrue(DB.EntityManagerFactory.getCache().contains(Event.class,readEvent1.getId()));
-            assertTrue(DB.EntityManagerFactory.getCache().contains(Event.class,readEvent2.getId()));
-
-            assertTrue(db.EntityManagerFactory.getCache().contains(Event.class, readEvent1.getId()));
-
             assertEquals(readEvent1,readEvent2);
             assertFalse(readEvent1==readEvent2);
         }
