@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests for the flat domain model containing only the class Enity.
  * @author jens dietrich
  */
-public class DBTests {
+public class DBRefTests {
 
     private static DB db = new DB();
 
