@@ -9,7 +9,6 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "Addresses")
-@Cacheable
 public class Address {
 
     @Id @GeneratedValue private Long id; // primary key

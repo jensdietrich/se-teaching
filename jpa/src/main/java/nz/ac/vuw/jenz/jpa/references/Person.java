@@ -1,7 +1,6 @@
 package nz.ac.vuw.jenz.jpa.references;
 
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 /**
@@ -10,7 +9,6 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "Persons")
-@Cacheable
 public class Person {
 
     @Id @GeneratedValue private Long id;  // primary key

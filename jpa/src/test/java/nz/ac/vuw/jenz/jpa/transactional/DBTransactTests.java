@@ -147,11 +147,11 @@ public class DBTransactTests {
 
             // this uses different object managers - so unless caching is setup, the objects returned are different
             // see also https://en.wikibooks.org/wiki/Java_Persistence/Caching#Example_JPA_2.0_Cacheable_annotation
-            Event readEvent1 = db.fetchEventById(event.getId());
-            Event readEvent2 = db.fetchEventById(event.getId());
+            Event event1 = db.fetchEventById(event.getId());
+            Event event2 = db.fetchEventById(event.getId());
 
-            assertEquals(readEvent1,readEvent2);
-            assertFalse(readEvent1==readEvent2);
+            assertEquals(event1,event2);
+            assertFalse(event1==event2);
         }
     }
 }
