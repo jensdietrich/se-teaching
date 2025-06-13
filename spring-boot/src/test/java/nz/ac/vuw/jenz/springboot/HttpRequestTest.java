@@ -18,10 +18,28 @@ public class HttpRequestTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void greetingShouldReturnDefaultMessage() throws Exception {
-        String s = restTemplate.getForObject("http://localhost:" + port + "/greeting", String.class);
+    void testWelcome() {
+        String s = restTemplate.getForObject("http://localhost:" + port + "/welcome", String.class);
         System.out.println("port is: " + port);
-        assertThat(s.contains("Hello, World")).isTrue();
+        assertThat(s).isEqualTo("Welcome to Vic Kritters!");
     }
+
+    @Test
+    void testFindOrder1() throws Exception {
+        Order order = restTemplate.getForObject("http://localhost:" + port + "/orders/1", Order.class);
+        assertThat(order).isNotNull();
+        Order expectedOrder = PetstoreDB.getOrder(1);  // oracle
+        assertThat(order).isEqualTo(expectedOrder);
+    }
+
+    @Test
+    void testFindOrder2() throws Exception {
+        Order order = restTemplate.getForObject("http://localhost:" + port + "/orders/2", Order.class);
+        assertThat(order).isNotNull();
+        Order expectedOrder = PetstoreDB.getOrder(2);  // oracle
+        assertThat(order).isEqualTo(expectedOrder);
+    }
+
+
 
 }
