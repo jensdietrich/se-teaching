@@ -3,14 +3,10 @@ package nz.ac.vuw.jenz.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @SpringBootApplication
 @RestController
@@ -32,7 +28,7 @@ public class Application {
 	// as in http://localhost:8080/orders/1
 	@GetMapping("/orders/{id}")
 	public Order getOrderById(@PathVariable(value = "id") int id) throws ResponseStatusException {
-		Order order = PetstoreDB.getOrder(id);
+		Order order = PetstoreDB.get(id);
 		if (order == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No order found with id " + id);
 		}
@@ -44,6 +40,22 @@ public class Application {
 	@GetMapping("/search")
 	public List<Order> getOrderByItemName(@RequestParam(value = "keyword") String keyword) {
 		return PetstoreDB.searchOrderByItemName(keyword);
+	}
+
+	@PostMapping("/orders")
+	void add(@RequestBody Order newOrder) {
+		PetstoreDB.add(newOrder);
+	}
+
+	@DeleteMapping("/orders/{id}")
+	boolean delete(@PathVariable(value = "id")  int id) {
+		Order order = PetstoreDB.get(id);
+		if (order == null) {
+			return false;
+		}
+		else {
+			return PetstoreDB.delete(order);
+		}
 	}
 
 }

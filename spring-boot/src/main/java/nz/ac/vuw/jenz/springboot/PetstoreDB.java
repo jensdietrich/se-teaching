@@ -1,8 +1,5 @@
 package nz.ac.vuw.jenz.springboot;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -29,15 +26,25 @@ public class PetstoreDB {
             new Order(5,OrderStatus.NEW,"Red Tail Rio Teles Pires Penguin Tetra",15.00,10,"dadams42"),
             new Order(6,OrderStatus.NEW,"Ozelot Sword Plant",24.99,1,"robmusil"),
             new Order(7,OrderStatus.NEW,"Angel Manacapuru F1",150,4,"wherzog")
-        );
+        )  // set constructed this way is unmodifiable, but we will allow modifications, see add
+        .stream().collect(Collectors.toSet());
     }
 
-    public static Order getOrder(int id)  {
+    public static Order get(int id)  {
         return orders.stream()
             .filter(o -> o.id()==id)
             .findFirst()
             .orElse(null);
     }
+
+    public static void add(Order order)  {
+        orders.add(order);
+    }
+
+    public static boolean delete(Order order)  {
+        return orders.remove(order);
+    }
+
 
     public static List<Order> searchOrderByItemName(String keyword) {
         return orders.stream()
