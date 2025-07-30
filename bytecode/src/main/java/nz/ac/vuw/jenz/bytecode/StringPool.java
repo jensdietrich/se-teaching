@@ -8,6 +8,6 @@ public class StringPool {
         // compare literal with (string constructed as) object
         System.out.println("identical: " + ("foo"==constructed));
         System.out.println("equal: " + "foo".equals(constructed));
-        System.out.println("indentical to internal: " + "foo".equals(constructed.intern()));
+        System.out.println("indentical to internal: " + ("foo"==constructed.intern()));
     }
 }
