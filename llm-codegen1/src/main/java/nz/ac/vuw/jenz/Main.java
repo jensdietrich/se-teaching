@@ -22,6 +22,8 @@ public class Main {
                 .desc("Ollama API base URL (default: " + DEFAULT_URL + ")").build());
         options.addOption(Option.builder("m").longOpt("model").hasArg().argName("model")
                 .desc("Ollama model name (default: " + DEFAULT_MODEL + ")").build());
+        options.addOption(Option.builder().longOpt("unload-after-use")
+                .desc("Unload the model from memory after the request (sends keep_alive=0). Default: false.").build());
         options.addOption(Option.builder("h").longOpt("help")
                 .desc("Print this help message").build());
 
@@ -52,6 +54,7 @@ public class Main {
         String outputPath = cmd.getOptionValue("o", DEFAULT_OUTPUT);
         String url = cmd.getOptionValue("u", DEFAULT_URL);
         String model = cmd.getOptionValue("m", DEFAULT_MODEL);
+        boolean unloadAfterUse = cmd.hasOption("unload-after-use");
 
         if ("?".equals(model)) {
             try {
@@ -64,7 +67,7 @@ public class Main {
         }
 
         try {
-            new PackageGenerator(url, model).generate(specPath, outputPath);
+            new PackageGenerator(url, model, unloadAfterUse).generate(specPath, outputPath);
         } catch (Exception e) {
             log.error("Package generation failed", e);
             System.exit(1);

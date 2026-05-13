@@ -54,12 +54,13 @@ ollama run qwen3.5:latest
 **Usage:**
 
 ```
-usage: ollama-package-gen -s <file> [-o <file>] [-u <url>] [-m <model>] [-h]
- -s,--spec <file>    Path to the .md specification file (required)
- -o,--output <file>  Output .zip file path (default: output.zip)
- -u,--url <url>      Ollama API base URL (default: http://localhost:11434)
- -m,--model <model>  Ollama model name (default: qwen3.5:latest) - if the model is set to ? a selector of models will appear
- -h,--help           Print this help message
+usage: ollama-package-gen [-h] [-m <model>] [-o <file>] [-s <file>] [-u <url>] [--unload-after-use]
+ -h,--help               Print this help message
+ -m,--model <model>      Ollama model name (default: qwen3.5:latest) - if the model is set to ? a selector of models will appear
+ -o,--output <file>      Output .zip file path (default: output.zip)
+ -s,--spec <file>        Path to the .md specification file (required)
+ -u,--url <url>          Ollama API base URL (default: http://localhost:11434)
+    --unload-after-use   Unload the model from memory after the request (sends keep_alive=0). Default: false.
 ```
 
 **Example:**

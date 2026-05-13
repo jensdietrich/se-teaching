@@ -19,11 +19,17 @@ public class OllamaClient {
 
     private final String baseUrl;
     private final String model;
+    private final boolean unloadAfterUse;
     private final HttpClient httpClient;
 
     public OllamaClient(String baseUrl, String model) {
+        this(baseUrl, model, false);
+    }
+
+    public OllamaClient(String baseUrl, String model, boolean unloadAfterUse) {
         this.baseUrl = baseUrl;
         this.model = model;
+        this.unloadAfterUse = unloadAfterUse;
         this.httpClient = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(30))
                 .build();
@@ -34,6 +40,9 @@ public class OllamaClient {
         body.put("model", model);
         body.put("prompt", prompt);
         body.put("stream", false);
+        if (unloadAfterUse) {
+            body.put("keep_alive", 0);
+        }
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(baseUrl + "/api/generate"))

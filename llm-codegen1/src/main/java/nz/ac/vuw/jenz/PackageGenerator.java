@@ -35,7 +35,11 @@ public class PackageGenerator {
     private final ResponseParser parser;
 
     public PackageGenerator(String baseUrl, String model) {
-        this.client = new OllamaClient(baseUrl, model);
+        this(baseUrl, model, false);
+    }
+
+    public PackageGenerator(String baseUrl, String model, boolean unloadAfterUse) {
+        this.client = new OllamaClient(baseUrl, model, unloadAfterUse);
         this.parser = new ResponseParser();
     }
 
