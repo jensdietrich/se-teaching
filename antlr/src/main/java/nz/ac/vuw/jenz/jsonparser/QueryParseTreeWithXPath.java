@@ -36,8 +36,8 @@ public class QueryParseTreeWithXPath {
             count = count+1;
             System.out.println("query result " + count + "/" + results.size()+" for query " + query + ":");
             String parseTreeAsString = solution.toStringTree(parser);
-            System.out.println(parseTreeAsString);
-            System.out.println();
+            System.out.println("\t"+parseTreeAsString);
+            //System.out.println();
         }
     }
 

@@ -38,7 +38,6 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>11.0.24</version>
         <configuration>
-          <scanIntervalSeconds>10</scanIntervalSeconds>
           <webApp>
             <contextPath>/webapp</contextPath>
           </webApp>

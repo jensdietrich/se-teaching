@@ -1,7 +1,6 @@
 package nz.ac.vuw.jenz.servlets;
 
 import java.io.*;
-import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 /**

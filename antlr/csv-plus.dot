@@ -1,0 +1,39 @@
+graph tree {
+
+  labelloc="t";
+  label="Expression Tree";
+
+  node_1 [label="# this is a comment\n", shape=circle];
+  node_2 [label="csv", shape=ellipse];
+  node_3 [label="value11", shape=circle];
+  node_4 [label="cell", shape=ellipse];
+  node_5 [label="row", shape=ellipse];
+  node_6 [label=",", shape=circle];
+  node_7 [label="value12", shape=circle];
+  node_8 [label="cell", shape=ellipse];
+  node_9 [label="\n", shape=circle];
+  node_10 [label="value21", shape=circle];
+  node_11 [label="cell", shape=ellipse];
+  node_12 [label="row", shape=ellipse];
+  node_13 [label=",", shape=circle];
+  node_14 [label="value22", shape=circle];
+  node_15 [label="cell", shape=ellipse];
+  node_16 [label="\n", shape=circle];
+
+  node_2 -- node_1
+  node_2 -- node_5
+  node_2 -- node_12
+  node_4 -- node_3
+  node_5 -- node_4
+  node_5 -- node_6
+  node_5 -- node_8
+  node_5 -- node_9
+  node_8 -- node_7
+  node_11 -- node_10
+  node_12 -- node_11
+  node_12 -- node_13
+  node_12 -- node_15
+  node_12 -- node_16
+  node_15 -- node_14
+}
+

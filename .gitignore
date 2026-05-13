@@ -61,3 +61,8 @@ service-whiteboxtesting-old/target
 webkid/codeql_db2
 webkid/codeql_db3
 maven-wrapper.properties
+llm-codegen1/target
+staticnullanalysis/target
+bytecode/target
+asm/tmp
+webkid/target

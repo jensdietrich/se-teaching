@@ -12,17 +12,24 @@ class VariableFinder implements ExpressionVisitor {
 
 	@Override
 	public void visit(Variable variable) {
+
 		this.variables.add(variable.getName());
 	}
 
 	@Override
-	public void visit(Constant constant) {}
+	public void visit(Constant constant) {
+		System.out.println(constant);
+	}
 
 	@Override
-	public void visit(ComplexTerm term) {}
+	public void visit(ComplexTerm term) {
+		System.out.println(term);
+	}
 
 	@Override
-	public void visit(Condition condition) {}
+	public void visit(Condition condition) {
+		System.out.println(condition);
+	}
 	
 	
 	public Set<String> getVariables() {
