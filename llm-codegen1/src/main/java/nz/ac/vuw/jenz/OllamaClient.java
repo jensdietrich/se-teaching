@@ -61,4 +61,23 @@ public class OllamaClient {
         JsonNode node = MAPPER.readTree(response.body());
         return node.get("response").asText();
     }
+
+    public void unload() throws Exception {
+        ObjectNode body = MAPPER.createObjectNode();
+        body.put("model", model);
+        body.put("keep_alive", 0);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(baseUrl + "/api/generate"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(MAPPER.writeValueAsString(body)))
+                .timeout(Duration.ofMinutes(1))
+                .build();
+
+        log.info("Requesting unload of model {}", model);
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() != 200) {
+            throw new RuntimeException("Ollama unload returned HTTP " + response.statusCode() + ": " + response.body());
+        }
+    }
 }
