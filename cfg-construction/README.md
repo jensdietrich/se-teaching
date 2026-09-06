@@ -66,7 +66,7 @@ to show basic blocks (cfg nodes).
 
 ```
 
-### Mermaid Visualisation of the Extacted CFG
+### Mermaid Visualisation of the Extracted CFG
 
 ```mermaid
 graph TD;
@@ -80,4 +80,14 @@ graph TD;
 ```
 
 
+### Nodes 
+
+The coordinates of nodes are the positions of bytes in the bytecode of the analysed methods. 
+
+Note: They can be mapped to lines numbers using the following API:
+
+```java
+MethodInfo mi = ctMethod.getMethodInfo();
+int line = mi.getLineNumber(block.position()); 
+```
 
